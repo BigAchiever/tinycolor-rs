@@ -325,8 +325,11 @@ value is still available at the comparison.
 ## D-015 — `polyad` is commented out upstream and excluded from fuzzing
 
 **Upstream.** `tinycolor.prototype.polyad` is commented out (`mod.js:265`), and
-its test is registered with `ignore: true` pending
-[bgrins/TinyColor#254](https://github.com/bgrins/TinyColor/issues/254). The
+its test is registered with `ignore: true`, commented
+"Disabled until [bgrins/TinyColor#254](https://github.com/bgrins/TinyColor/issues/254)".
+That issue is "Task: Publish 1.6.0 to npm" and is now **closed**, so the stated
+blocker no longer applies and the method appears to have been left disabled by
+oversight rather than by intent. The
 internal `polyad()` function still exists and backs `triad`/`tetrad`.
 
 **Port.** Implements `polyad` (the disabled test expects it, and it would be
@@ -441,9 +444,11 @@ not by omission.
 
 **Upstream already guards the same hazard elsewhere.** `polyad()` validates its
 count (`if (isNaN(number) || number <= 0) throw`), so the risk is recognised in
-one of the three combination functions and not the other two. Written up as a
-filable report in `UPSTREAM-BUG-REPORT.md`; not filed, because filing should
-happen under the team's own GitHub identity rather than be fabricated here.
+one of the three combination functions and not the other two. Reported upstream as
+[bgrins/TinyColor#280](https://github.com/bgrins/TinyColor/issues/280), with the report text preserved in
+`UPSTREAM-BUG-REPORT.md`. Verified against current `main` before filing: the
+vendored copy here is byte-identical to `main`, both loops are still present,
+and all six cases (two functions x `-1`, `1.5`, `0.5`) exit 134.
 
 *Verified: reproduced directly against upstream at the pinned commit, exit 134,
 and against the port, exit 0.*

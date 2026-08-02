@@ -344,15 +344,31 @@ reproduce = "grep -c '^## D-' DECISIONS.md"
 [[bonuses]]
 id       = "bug-catcher"
 points   = 3
-claimed  = false
+claimed  = true
 criterion = "file a bug against the upstream project"
-reason   = "NOT CLAIMED. We found two genuine upstream oddities and deliberately reported neither, so claiming this bonus would be false. D-007: a literal '|' is an accepted CSS separator — investigated and not reported, because TinyColor's stated goal is maximum permissiveness, so this is intended behaviour rather than a defect. D-011: a parseInt-on-number defect in bound01 — reproduced, then PROVEN UNOBSERVABLE through the public API, so there is no user-visible bug to file. Filing either would have been noise in a maintainer's inbox for 3 points."
-evidence = ["DECISIONS.md#d-007", "DECISIONS.md#d-011"]
+reason   = """
+CLAIMED. bgrins/TinyColor#280: analogous() and monochromatic() loop unboundedly \
+on negative or fractional counts and exhaust the process heap. Both decrement a \
+counter and test truthiness, so a counter that never lands exactly on 0 never \
+terminates; each iteration pushes a colour. Six cases confirmed (two functions x \
+-1, 1.5, 0.5), all exit 134. Verified against current main before filing, not \
+just the pinned commit. Upstream already guards the same input shape in polyad() \
+(`if (isNaN(number) || number <= 0) throw`), so the hazard is recognised in one \
+of the three combination functions and not the other two.
+
+Two further oddities were investigated and deliberately NOT reported, because \
+neither is a defect: D-007 (a literal '|' is an accepted CSS separator — \
+consistent with TinyColor's stated goal of maximum permissiveness) and D-011 \
+(a parseInt-on-number quirk in bound01 — reproduced, then proven unobservable \
+through the public API).
+"""
+url      = "https://github.com/bgrins/TinyColor/issues/280"
+evidence = ["DECISIONS.md#d-022", "UPSTREAM-BUG-REPORT.md", "https://github.com/bgrins/TinyColor/issues/280"]
 
 [bonuses_summary]
-claimed_points = 13   # 5 + 5 + 3
+claimed_points = 16   # 5 fuzz-survivor + 5 zero-unsafe + 3 decision-log + 3 bug-catcher
 available      = 16
-forgone        = 3    # bug-catcher, deliberately
+forgone        = 0
 
 
 # ─────────────────────────────────────────────────────────────────────────────
