@@ -1,0 +1,17 @@
+[package]
+name = "tinycolor-cli"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[[bin]]
+name = "tinycolor"
+path = "src/main.rs"
+
+[dependencies]
+tinycolor-core = { path = "../core" }
+
+[lints.rust]
+# Same compiler-enforced guarantee as the core crate: the "zero unsafe" claim
+# is machine-checked at every transport boundary, not just in the library.
+unsafe_code = "forbid"

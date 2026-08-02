@@ -1,0 +1,13 @@
+{
+  "name": "port-mortem-tinycolor-rs",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Rust port of TinyColor, driven by the unmodified upstream test suite.",
+  "scripts": {
+    "test": "node tests/original/test.js",
+    "verify-hashes": "./scripts/verify-hashes.sh"
+  },
+  "devDependencies": {
+    "@deno/shim-deno-test": "^0.4.0"
+  }
+}

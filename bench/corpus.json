@@ -1,0 +1,2150 @@
+{
+ "seed": "0x5eed",
+ "size": 512,
+ "generator": "bench/gen-corpus.mjs",
+ "note": "Weights are an assumption about CSS-tooling usage, not a measurement of any real codebase.",
+ "counts": {
+  "padded": 15,
+  "name": 61,
+  "rgba": 20,
+  "hex3": 51,
+  "hex6": 206,
+  "hsl": 26,
+  "hex4": 15,
+  "rgb": 31,
+  "invalid": 26,
+  "hsla": 15,
+  "object": 20,
+  "hex8": 26
+ },
+ "entries": [
+  {
+   "kind": "padded",
+   "value": "  #A890C3"
+  },
+  {
+   "kind": "name",
+   "value": "red"
+  },
+  {
+   "kind": "name",
+   "value": "lavender"
+  },
+  {
+   "kind": "name",
+   "value": "khaki"
+  },
+  {
+   "kind": "rgba",
+   "value": "rgba(200, 200, 200, 0.21)"
+  },
+  {
+   "kind": "hex3",
+   "value": "#7ee"
+  },
+  {
+   "kind": "hex6",
+   "value": "#8f041c"
+  },
+  {
+   "kind": "padded",
+   "value": "#5E1E84"
+  },
+  {
+   "kind": "hex6",
+   "value": "#1e165d"
+  },
+  {
+   "kind": "name",
+   "value": "azure"
+  },
+  {
+   "kind": "hex6",
+   "value": "#44090d"
+  },
+  {
+   "kind": "name",
+   "value": "green"
+  },
+  {
+   "kind": "name",
+   "value": "cyan"
+  },
+  {
+   "kind": "padded",
+   "value": "  #0C081A"
+  },
+  {
+   "kind": "hsl",
+   "value": "hsl(55, 7%, 4%)"
+  },
+  {
+   "kind": "hex4",
+   "value": "#32fb"
+  },
+  {
+   "kind": "name",
+   "value": "darkblue"
+  },
+  {
+   "kind": "rgb",
+   "value": "rgb(127, 127, 127)"
+  },
+  {
+   "kind": "rgb",
+   "value": "rgb(2, 13, 200)"
+  },
+  {
+   "kind": "name",
+   "value": "whitesmoke"
+  },
+  {
+   "kind": "invalid",
+   "value": "hsl(999"
+  },
+  {
+   "kind": "hsla",
+   "value": "hsla(158, 6%, 82%, 0.55)"
+  },
+  {
+   "kind": "name",
+   "value": "pink"
+  },
+  {
+   "kind": "name",
+   "value": "tomato"
+  },
+  {
+   "kind": "hsl",
+   "value": "hsl(205, 90%, 62%)"
+  },
+  {
+   "kind": "hex6",
+   "value": "#a57ca9"
+  },
+  {
+   "kind": "name",
+   "value": "coral"
+  },
+  {
+   "kind": "hex6",
+   "value": "#792705"
+  },
+  {
+   "kind": "hex6",
+   "value": "#624106"
+  },
+  {
+   "kind": "hex6",
+   "value": "#35019c"
+  },
+  {
+   "kind": "hex6",
+   "value": "#094b0c"
+  },
+  {
+   "kind": "hex6",
+   "value": "#170f80"
+  },
+  {
+   "kind": "hex6",
+   "value": "#2a2e05"
+  },
+  {
+   "kind": "hex3",
+   "value": "#e27"
+  },
+  {
+   "kind": "hex6",
+   "value": "#70a011"
+  },
+  {
+   "kind": "hex6",
+   "value": "#3e0c01"
+  },
+  {
+   "kind": "hex3",
+   "value": "#dc9"
+  },
+  {
+   "kind": "invalid",
+   "value": "chartrooze"
+  },
+  {
+   "kind": "hex6",
+   "value": "#043b19"
+  },
+  {
+   "kind": "hex6",
+   "value": "#40231a"
+  },
+  {
+   "kind": "hex6",
+   "value": "#722303"
+  },
+  {
+   "kind": "hex6",
+   "value": "#0c565c"
+  },
+  {
+   "kind": "hex6",
+   "value": "#5a411c"
+  },
+  {
+   "kind": "hex6",
+   "value": "#cd9eb7"
+  },
+  {
+   "kind": "name",
+   "value": "gold"
+  },
+  {
+   "kind": "hex6",
+   "value": "#0f0a02"
+  },
+  {
+   "kind": "name",
+   "value": "lavender"
+  },
+  {
+   "kind": "hex6",
+   "value": "#622c0f"
+  },
+  {
+   "kind": "invalid",
+   "value": ""
+  },
+  {
+   "kind": "name",
+   "value": "magenta"
+  },
+  {
+   "kind": "name",
+   "value": "lime"
+  },
+  {
+   "kind": "hex6",
+   "value": "#3e3893"
+  },
+  {
+   "kind": "invalid",
+   "value": "not a color"
+  },
+  {
+   "kind": "hex4",
+   "value": "#fd0e"
+  },
+  {
+   "kind": "hex6",
+   "value": "#0a283b"
+  },
+  {
+   "kind": "hex6",
+   "value": "#056806"
+  },
+  {
+   "kind": "name",
+   "value": "coral"
+  },
+  {
+   "kind": "hsl",
+   "value": "hsl(299, 52%, 43%)"
+  },
+  {
+   "kind": "hsl",
+   "value": "hsl(137, 24%, 94%)"
+  },
+  {
+   "kind": "hex6",
+   "value": "#d2725f"
+  },
+  {
+   "kind": "hex6",
+   "value": "#422428"
+  },
+  {
+   "kind": "rgba",
+   "value": "rgba(206, 77, 206, 0.31)"
+  },
+  {
+   "kind": "object",
+   "value": {
+    "r": 75,
+    "g": 218,
+    "b": 166
+   }
+  },
+  {
+   "kind": "hex6",
+   "value": "#2c4202"
+  },
+  {
+   "kind": "hex3",
+   "value": "#e75"
+  },
+  {
+   "kind": "hex6",
+   "value": "#af2a36"
+  },
+  {
+   "kind": "padded",
+   "value": "  #5A1E1E"
+  },
+  {
+   "kind": "hex6",
+   "value": "#0d201d"
+  },
+  {
+   "kind": "hex6",
+   "value": "#111412"
+  },
+  {
+   "kind": "hex6",
+   "value": "#5d4502"
+  },
+  {
+   "kind": "invalid",
+   "value": "hsl(999"
+  },
+  {
+   "kind": "hex6",
+   "value": "#2c0737"
+  },
+  {
+   "kind": "rgb",
+   "value": "rgb(218, 173, 252)"
+  },
+  {
+   "kind": "hex6",
+   "value": "#051160"
+  },
+  {
+   "kind": "name",
+   "value": "purple"
+  },
+  {
+   "kind": "rgba",
+   "value": "rgba(67, 23, 36, 0.07)"
+  },
+  {
+   "kind": "hex6",
+   "value": "#232c3f"
+  },
+  {
+   "kind": "hex3",
+   "value": "#5ad"
+  },
+  {
+   "kind": "rgba",
+   "value": "rgba(211, 200, 73, 0.85)"
+  },
+  {
+   "kind": "hex6",
+   "value": "#38810f"
+  },
+  {
+   "kind": "hex8",
+   "value": "#00040e26"
+  },
+  {
+   "kind": "hex6",
+   "value": "#45974c"
+  },
+  {
+   "kind": "hex6",
+   "value": "#5a3b41"
+  },
+  {
+   "kind": "hex8",
+   "value": "#022bc4bd"
+  },
+  {
+   "kind": "object",
+   "value": {
+    "r": 19,
+    "g": 19,
+    "b": 19
+   }
+  },
+  {
+   "kind": "object",
+   "value": {
+    "r": 210,
+    "g": 142,
+    "b": 160
+   }
+  },
+  {
+   "kind": "rgba",
+   "value": "rgba(54, 54, 54, 0.33)"
+  },
+  {
+   "kind": "rgb",
+   "value": "rgb(218, 173, 166)"
+  },
+  {
+   "kind": "hex6",
+   "value": "#ac8f88"
+  },
+  {
+   "kind": "hex6",
+   "value": "#2c6408"
+  },
+  {
+   "kind": "name",
+   "value": "orchid"
+  },
+  {
+   "kind": "hex6",
+   "value": "#2c3a92"
+  },
+  {
+   "kind": "hex6",
+   "value": "#490d43"
+  },
+  {
+   "kind": "hex6",
+   "value": "#7e1a4e"
+  },
+  {
+   "kind": "hex3",
+   "value": "#39b"
+  },
+  {
+   "kind": "rgb",
+   "value": "rgb(18, 210, 36)"
+  },
+  {
+   "kind": "hsl",
+   "value": "hsl(184, 90%, 47%)"
+  },
+  {
+   "kind": "hex3",
+   "value": "#d6b"
+  },
+  {
+   "kind": "hex6",
+   "value": "#10722a"
+  },
+  {
+   "kind": "hex8",
+   "value": "#71052b38"
+  },
+  {
+   "kind": "name",
+   "value": "magenta"
+  },
+  {
+   "kind": "hex6",
+   "value": "#131e56"
+  },
+  {
+   "kind": "hex6",
+   "value": "#34644d"
+  },
+  {
+   "kind": "hex6",
+   "value": "#031106"
+  },
+  {
+   "kind": "hex6",
+   "value": "#3a4434"
+  },
+  {
+   "kind": "hex4",
+   "value": "#aab7"
+  },
+  {
+   "kind": "rgb",
+   "value": "rgb(60, 70, 228)"
+  },
+  {
+   "kind": "rgb",
+   "value": "rgb(120, 237, 49)"
+  },
+  {
+   "kind": "rgb",
+   "value": "rgb(173, 202, 88)"
+  },
+  {
+   "kind": "hex8",
+   "value": "#1c981b17"
+  },
+  {
+   "kind": "hex6",
+   "value": "#0b9601"
+  },
+  {
+   "kind": "name",
+   "value": "silver"
+  },
+  {
+   "kind": "hsla",
+   "value": "hsla(132, 26%, 43%, 0.04)"
+  },
+  {
+   "kind": "hex3",
+   "value": "#cf0"
+  },
+  {
+   "kind": "hex6",
+   "value": "#842814"
+  },
+  {
+   "kind": "hex6",
+   "value": "#0e4804"
+  },
+  {
+   "kind": "rgb",
+   "value": "rgb(230, 78, 126)"
+  },
+  {
+   "kind": "hex6",
+   "value": "#4b1c0a"
+  },
+  {
+   "kind": "hex3",
+   "value": "#4ad"
+  },
+  {
+   "kind": "object",
+   "value": {
+    "r": 228,
+    "g": 228,
+    "b": 228
+   }
+  },
+  {
+   "kind": "hex8",
+   "value": "#1729305f"
+  },
+  {
+   "kind": "hsl",
+   "value": "hsl(108, 92%, 37%)"
+  },
+  {
+   "kind": "hex6",
+   "value": "#012139"
+  },
+  {
+   "kind": "object",
+   "value": {
+    "r": 177,
+    "g": 33,
+    "b": 180
+   }
+  },
+  {
+   "kind": "hex8",
+   "value": "#090f1324"
+  },
+  {
+   "kind": "name",
+   "value": "pink"
+  },
+  {
+   "kind": "hex6",
+   "value": "#403617"
+  },
+  {
+   "kind": "hex8",
+   "value": "#1faa0828"
+  },
+  {
+   "kind": "hex6",
+   "value": "#533852"
+  },
+  {
+   "kind": "hsla",
+   "value": "hsla(149, 33%, 1%, 0.17)"
+  },
+  {
+   "kind": "hex8",
+   "value": "#0056144c"
+  },
+  {
+   "kind": "hex6",
+   "value": "#054369"
+  },
+  {
+   "kind": "hsl",
+   "value": "hsl(39, 73%, 48%)"
+  },
+  {
+   "kind": "hex6",
+   "value": "#080733"
+  },
+  {
+   "kind": "hex6",
+   "value": "#430443"
+  },
+  {
+   "kind": "rgb",
+   "value": "rgb(212, 212, 212)"
+  },
+  {
+   "kind": "hsl",
+   "value": "hsl(31, 40%, 27%)"
+  },
+  {
+   "kind": "name",
+   "value": "pink"
+  },
+  {
+   "kind": "hex6",
+   "value": "#ae120a"
+  },
+  {
+   "kind": "hex6",
+   "value": "#53d907"
+  },
+  {
+   "kind": "hex6",
+   "value": "#172241"
+  },
+  {
+   "kind": "hex3",
+   "value": "#016"
+  },
+  {
+   "kind": "hex6",
+   "value": "#1c9f08"
+  },
+  {
+   "kind": "hex4",
+   "value": "#09ff"
+  },
+  {
+   "kind": "padded",
+   "value": "#2A2D05"
+  },
+  {
+   "kind": "hex3",
+   "value": "#205"
+  },
+  {
+   "kind": "hex6",
+   "value": "#3f3f69"
+  },
+  {
+   "kind": "hex6",
+   "value": "#2e0c2e"
+  },
+  {
+   "kind": "hex6",
+   "value": "#00c70b"
+  },
+  {
+   "kind": "hex3",
+   "value": "#80a"
+  },
+  {
+   "kind": "hex3",
+   "value": "#ee8"
+  },
+  {
+   "kind": "object",
+   "value": {
+    "r": 70,
+    "g": 29,
+    "b": 220
+   }
+  },
+  {
+   "kind": "hex6",
+   "value": "#09132b"
+  },
+  {
+   "kind": "hex3",
+   "value": "#123"
+  },
+  {
+   "kind": "hsla",
+   "value": "hsla(134, 16%, 98%, 0.81)"
+  },
+  {
+   "kind": "hex6",
+   "value": "#ce1d6d"
+  },
+  {
+   "kind": "hex6",
+   "value": "#070108"
+  },
+  {
+   "kind": "invalid",
+   "value": ""
+  },
+  {
+   "kind": "hex3",
+   "value": "#004"
+  },
+  {
+   "kind": "hex6",
+   "value": "#2b0e3e"
+  },
+  {
+   "kind": "hex6",
+   "value": "#010086"
+  },
+  {
+   "kind": "rgba",
+   "value": "rgba(178, 88, 103, 0.62)"
+  },
+  {
+   "kind": "hex3",
+   "value": "#04e"
+  },
+  {
+   "kind": "hex6",
+   "value": "#56091c"
+  },
+  {
+   "kind": "padded",
+   "value": "  #0800BE"
+  },
+  {
+   "kind": "hex6",
+   "value": "#008b31"
+  },
+  {
+   "kind": "rgba",
+   "value": "rgba(137, 59, 139, 0.00)"
+  },
+  {
+   "kind": "hex6",
+   "value": "#280bc2"
+  },
+  {
+   "kind": "name",
+   "value": "firebrick"
+  },
+  {
+   "kind": "rgb",
+   "value": "rgb(141, 238, 83)"
+  },
+  {
+   "kind": "hex8",
+   "value": "#54e7560a"
+  },
+  {
+   "kind": "object",
+   "value": {
+    "r": 173,
+    "g": 173,
+    "b": 173
+   }
+  },
+  {
+   "kind": "hsl",
+   "value": "hsl(337, 2%, 93%)"
+  },
+  {
+   "kind": "hex8",
+   "value": "#281ab51c"
+  },
+  {
+   "kind": "hex6",
+   "value": "#b57d41"
+  },
+  {
+   "kind": "hex6",
+   "value": "#052603"
+  },
+  {
+   "kind": "hex6",
+   "value": "#9b0335"
+  },
+  {
+   "kind": "hex6",
+   "value": "#caaf92"
+  },
+  {
+   "kind": "hex6",
+   "value": "#3c6f1f"
+  },
+  {
+   "kind": "hex6",
+   "value": "#8d0120"
+  },
+  {
+   "kind": "hex6",
+   "value": "#071c04"
+  },
+  {
+   "kind": "rgb",
+   "value": "rgb(13, 13, 13)"
+  },
+  {
+   "kind": "hsl",
+   "value": "hsl(360, 44%, 29%)"
+  },
+  {
+   "kind": "hex6",
+   "value": "#723711"
+  },
+  {
+   "kind": "hex6",
+   "value": "#d01f1a"
+  },
+  {
+   "kind": "hex6",
+   "value": "#58062f"
+  },
+  {
+   "kind": "hex6",
+   "value": "#55260f"
+  },
+  {
+   "kind": "hex3",
+   "value": "#db7"
+  },
+  {
+   "kind": "hex6",
+   "value": "#426b0b"
+  },
+  {
+   "kind": "hex6",
+   "value": "#3d584f"
+  },
+  {
+   "kind": "hex8",
+   "value": "#16190f4a"
+  },
+  {
+   "kind": "hex6",
+   "value": "#43072c"
+  },
+  {
+   "kind": "hex6",
+   "value": "#201091"
+  },
+  {
+   "kind": "hex6",
+   "value": "#334f0f"
+  },
+  {
+   "kind": "hex6",
+   "value": "#5a074f"
+  },
+  {
+   "kind": "invalid",
+   "value": "hsl(999"
+  },
+  {
+   "kind": "hex6",
+   "value": "#835421"
+  },
+  {
+   "kind": "padded",
+   "value": "\t#0246AB"
+  },
+  {
+   "kind": "invalid",
+   "value": "not a color"
+  },
+  {
+   "kind": "name",
+   "value": "violet"
+  },
+  {
+   "kind": "hex6",
+   "value": "#160d25"
+  },
+  {
+   "kind": "hex3",
+   "value": "#e41"
+  },
+  {
+   "kind": "rgba",
+   "value": "rgba(242, 110, 138, 0.26)"
+  },
+  {
+   "kind": "invalid",
+   "value": "#gggggg"
+  },
+  {
+   "kind": "hex3",
+   "value": "#40e"
+  },
+  {
+   "kind": "hsl",
+   "value": "hsl(104, 87%, 45%)"
+  },
+  {
+   "kind": "hex6",
+   "value": "#025554"
+  },
+  {
+   "kind": "hex6",
+   "value": "#7a284b"
+  },
+  {
+   "kind": "hex6",
+   "value": "#1aee0a"
+  },
+  {
+   "kind": "hex6",
+   "value": "#701c32"
+  },
+  {
+   "kind": "hex6",
+   "value": "#1a3244"
+  },
+  {
+   "kind": "invalid",
+   "value": "not a color"
+  },
+  {
+   "kind": "hex6",
+   "value": "#32142d"
+  },
+  {
+   "kind": "hex3",
+   "value": "#010"
+  },
+  {
+   "kind": "hex3",
+   "value": "#6e1"
+  },
+  {
+   "kind": "hex6",
+   "value": "#282e2e"
+  },
+  {
+   "kind": "object",
+   "value": {
+    "r": 202,
+    "g": 144,
+    "b": 106
+   }
+  },
+  {
+   "kind": "hex6",
+   "value": "#15160f"
+  },
+  {
+   "kind": "hex6",
+   "value": "#367164"
+  },
+  {
+   "kind": "rgb",
+   "value": "rgb(9, 166, 170)"
+  },
+  {
+   "kind": "name",
+   "value": "khaki"
+  },
+  {
+   "kind": "hex6",
+   "value": "#385b0c"
+  },
+  {
+   "kind": "hex4",
+   "value": "#64f8"
+  },
+  {
+   "kind": "hex6",
+   "value": "#201055"
+  },
+  {
+   "kind": "rgb",
+   "value": "rgb(45, 45, 45)"
+  },
+  {
+   "kind": "rgb",
+   "value": "rgb(96, 241, 158)"
+  },
+  {
+   "kind": "object",
+   "value": {
+    "r": 198,
+    "g": 197,
+    "b": 244
+   }
+  },
+  {
+   "kind": "hsl",
+   "value": "hsl(321, 61%, 46%)"
+  },
+  {
+   "kind": "hex6",
+   "value": "#168a70"
+  },
+  {
+   "kind": "hex3",
+   "value": "#23b"
+  },
+  {
+   "kind": "hex6",
+   "value": "#802aa7"
+  },
+  {
+   "kind": "name",
+   "value": "darkgreen"
+  },
+  {
+   "kind": "hex6",
+   "value": "#0b6102"
+  },
+  {
+   "kind": "rgba",
+   "value": "rgba(214, 214, 214, 0.19)"
+  },
+  {
+   "kind": "hex6",
+   "value": "#9f0070"
+  },
+  {
+   "kind": "hex8",
+   "value": "#0e1a39dd"
+  },
+  {
+   "kind": "hsl",
+   "value": "hsl(202, 99%, 39%)"
+  },
+  {
+   "kind": "hex6",
+   "value": "#670d26"
+  },
+  {
+   "kind": "hex6",
+   "value": "#30580c"
+  },
+  {
+   "kind": "name",
+   "value": "beige"
+  },
+  {
+   "kind": "object",
+   "value": {
+    "r": 218,
+    "g": 239,
+    "b": 16
+   }
+  },
+  {
+   "kind": "hex6",
+   "value": "#7a647a"
+  },
+  {
+   "kind": "hex6",
+   "value": "#110170"
+  },
+  {
+   "kind": "hex6",
+   "value": "#3d0b59"
+  },
+  {
+   "kind": "hex6",
+   "value": "#210c2c"
+  },
+  {
+   "kind": "hex6",
+   "value": "#883a73"
+  },
+  {
+   "kind": "hex3",
+   "value": "#84f"
+  },
+  {
+   "kind": "hex6",
+   "value": "#070d04"
+  },
+  {
+   "kind": "hex3",
+   "value": "#682"
+  },
+  {
+   "kind": "name",
+   "value": "turquoise"
+  },
+  {
+   "kind": "hex6",
+   "value": "#0f446f"
+  },
+  {
+   "kind": "name",
+   "value": "khaki"
+  },
+  {
+   "kind": "rgb",
+   "value": "rgb(243, 41, 171)"
+  },
+  {
+   "kind": "padded",
+   "value": "  #79250B"
+  },
+  {
+   "kind": "hex6",
+   "value": "#040303"
+  },
+  {
+   "kind": "hex4",
+   "value": "#5d63"
+  },
+  {
+   "kind": "hex6",
+   "value": "#91b6b8"
+  },
+  {
+   "kind": "invalid",
+   "value": "not a color"
+  },
+  {
+   "kind": "hsla",
+   "value": "hsla(128, 49%, 74%, 0.23)"
+  },
+  {
+   "kind": "hsl",
+   "value": "hsl(340, 59%, 54%)"
+  },
+  {
+   "kind": "hex6",
+   "value": "#65154d"
+  },
+  {
+   "kind": "hex6",
+   "value": "#263600"
+  },
+  {
+   "kind": "padded",
+   "value": "\t#674990  "
+  },
+  {
+   "kind": "hex6",
+   "value": "#838e18"
+  },
+  {
+   "kind": "object",
+   "value": {
+    "r": 27,
+    "g": 131,
+    "b": 47
+   }
+  },
+  {
+   "kind": "hex8",
+   "value": "#1b48244c"
+  },
+  {
+   "kind": "hex3",
+   "value": "#0ff"
+  },
+  {
+   "kind": "hex6",
+   "value": "#25145e"
+  },
+  {
+   "kind": "rgba",
+   "value": "rgba(187, 187, 187, 0.60)"
+  },
+  {
+   "kind": "hex3",
+   "value": "#99e"
+  },
+  {
+   "kind": "hex6",
+   "value": "#2a0f39"
+  },
+  {
+   "kind": "hsla",
+   "value": "hsla(316, 96%, 18%, 0.09)"
+  },
+  {
+   "kind": "hex6",
+   "value": "#cd1f42"
+  },
+  {
+   "kind": "name",
+   "value": "aqua"
+  },
+  {
+   "kind": "hex6",
+   "value": "#073e2e"
+  },
+  {
+   "kind": "hsla",
+   "value": "hsla(52, 90%, 46%, 0.29)"
+  },
+  {
+   "kind": "hsl",
+   "value": "hsl(113, 78%, 7%)"
+  },
+  {
+   "kind": "hex6",
+   "value": "#000097"
+  },
+  {
+   "kind": "hex6",
+   "value": "#bc2e22"
+  },
+  {
+   "kind": "hsla",
+   "value": "hsla(68, 27%, 26%, 0.32)"
+  },
+  {
+   "kind": "hex6",
+   "value": "#680f34"
+  },
+  {
+   "kind": "hex6",
+   "value": "#07060b"
+  },
+  {
+   "kind": "invalid",
+   "value": "#fffff"
+  },
+  {
+   "kind": "name",
+   "value": "navy"
+  },
+  {
+   "kind": "hex6",
+   "value": "#1f192e"
+  },
+  {
+   "kind": "hex6",
+   "value": "#010101"
+  },
+  {
+   "kind": "hsl",
+   "value": "hsl(204, 86%, 12%)"
+  },
+  {
+   "kind": "name",
+   "value": "crimson"
+  },
+  {
+   "kind": "invalid",
+   "value": "not a color"
+  },
+  {
+   "kind": "hex3",
+   "value": "#01f"
+  },
+  {
+   "kind": "hsl",
+   "value": "hsl(323, 16%, 100%)"
+  },
+  {
+   "kind": "hex4",
+   "value": "#0478"
+  },
+  {
+   "kind": "hsl",
+   "value": "hsl(154, 85%, 94%)"
+  },
+  {
+   "kind": "hex6",
+   "value": "#069005"
+  },
+  {
+   "kind": "name",
+   "value": "magenta"
+  },
+  {
+   "kind": "hex6",
+   "value": "#1067c9"
+  },
+  {
+   "kind": "hex6",
+   "value": "#0bac9f"
+  },
+  {
+   "kind": "name",
+   "value": "violet"
+  },
+  {
+   "kind": "name",
+   "value": "wheat"
+  },
+  {
+   "kind": "name",
+   "value": "hotpink"
+  },
+  {
+   "kind": "hsla",
+   "value": "hsla(186, 30%, 36%, 0.02)"
+  },
+  {
+   "kind": "rgba",
+   "value": "rgba(161, 93, 140, 0.04)"
+  },
+  {
+   "kind": "hex6",
+   "value": "#b6710a"
+  },
+  {
+   "kind": "hex6",
+   "value": "#290d19"
+  },
+  {
+   "kind": "hex3",
+   "value": "#606"
+  },
+  {
+   "kind": "object",
+   "value": {
+    "r": 230,
+    "g": 238,
+    "b": 250
+   }
+  },
+  {
+   "kind": "hex3",
+   "value": "#317"
+  },
+  {
+   "kind": "invalid",
+   "value": "not a color"
+  },
+  {
+   "kind": "hex3",
+   "value": "#124"
+  },
+  {
+   "kind": "hex6",
+   "value": "#c75a15"
+  },
+  {
+   "kind": "hex3",
+   "value": "#c47"
+  },
+  {
+   "kind": "hex3",
+   "value": "#6d7"
+  },
+  {
+   "kind": "hex3",
+   "value": "#f80"
+  },
+  {
+   "kind": "name",
+   "value": "red"
+  },
+  {
+   "kind": "hex8",
+   "value": "#73031d08"
+  },
+  {
+   "kind": "name",
+   "value": "beige"
+  },
+  {
+   "kind": "hex6",
+   "value": "#61101c"
+  },
+  {
+   "kind": "name",
+   "value": "darkblue"
+  },
+  {
+   "kind": "rgba",
+   "value": "rgba(57, 189, 220, 0.04)"
+  },
+  {
+   "kind": "hex8",
+   "value": "#2c05100b"
+  },
+  {
+   "kind": "padded",
+   "value": "  #569E3D"
+  },
+  {
+   "kind": "hex3",
+   "value": "#4b6"
+  },
+  {
+   "kind": "hex6",
+   "value": "#080505"
+  },
+  {
+   "kind": "rgb",
+   "value": "rgb(3, 204, 44)"
+  },
+  {
+   "kind": "hex4",
+   "value": "#b9b5"
+  },
+  {
+   "kind": "name",
+   "value": "aliceblue"
+  },
+  {
+   "kind": "rgb",
+   "value": "rgb(157, 157, 157)"
+  },
+  {
+   "kind": "invalid",
+   "value": "not a color"
+  },
+  {
+   "kind": "hex6",
+   "value": "#503e03"
+  },
+  {
+   "kind": "hex6",
+   "value": "#18120c"
+  },
+  {
+   "kind": "hex8",
+   "value": "#b6127100"
+  },
+  {
+   "kind": "name",
+   "value": "silver"
+  },
+  {
+   "kind": "rgb",
+   "value": "rgb(148, 243, 213)"
+  },
+  {
+   "kind": "name",
+   "value": "ivory"
+  },
+  {
+   "kind": "padded",
+   "value": "  #193118"
+  },
+  {
+   "kind": "hsla",
+   "value": "hsla(133, 99%, 4%, 0.88)"
+  },
+  {
+   "kind": "name",
+   "value": "olive"
+  },
+  {
+   "kind": "hex4",
+   "value": "#ec84"
+  },
+  {
+   "kind": "invalid",
+   "value": "not a color"
+  },
+  {
+   "kind": "rgba",
+   "value": "rgba(217, 233, 196, 0.34)"
+  },
+  {
+   "kind": "hex3",
+   "value": "#085"
+  },
+  {
+   "kind": "hex4",
+   "value": "#482a"
+  },
+  {
+   "kind": "invalid",
+   "value": "not a color"
+  },
+  {
+   "kind": "invalid",
+   "value": "chartrooze"
+  },
+  {
+   "kind": "hex6",
+   "value": "#120812"
+  },
+  {
+   "kind": "name",
+   "value": "firebrick"
+  },
+  {
+   "kind": "hsla",
+   "value": "hsla(166, 95%, 9%, 0.35)"
+  },
+  {
+   "kind": "padded",
+   "value": "#7B01C4"
+  },
+  {
+   "kind": "hex3",
+   "value": "#508"
+  },
+  {
+   "kind": "padded",
+   "value": "#3D0F1F"
+  },
+  {
+   "kind": "hex6",
+   "value": "#02a511"
+  },
+  {
+   "kind": "hsl",
+   "value": "hsl(170, 62%, 33%)"
+  },
+  {
+   "kind": "hex6",
+   "value": "#230c08"
+  },
+  {
+   "kind": "hex8",
+   "value": "#42047b36"
+  },
+  {
+   "kind": "rgb",
+   "value": "rgb(98, 140, 77)"
+  },
+  {
+   "kind": "rgb",
+   "value": "rgb(62, 186, 122)"
+  },
+  {
+   "kind": "name",
+   "value": "lavender"
+  },
+  {
+   "kind": "object",
+   "value": {
+    "r": 189,
+    "g": 180,
+    "b": 206
+   }
+  },
+  {
+   "kind": "rgb",
+   "value": "rgb(172, 242, 72)"
+  },
+  {
+   "kind": "hex6",
+   "value": "#06041a"
+  },
+  {
+   "kind": "hex6",
+   "value": "#03a15d"
+  },
+  {
+   "kind": "hex6",
+   "value": "#98063e"
+  },
+  {
+   "kind": "hex6",
+   "value": "#244579"
+  },
+  {
+   "kind": "hex3",
+   "value": "#341"
+  },
+  {
+   "kind": "name",
+   "value": "darkblue"
+  },
+  {
+   "kind": "hsl",
+   "value": "hsl(146, 20%, 28%)"
+  },
+  {
+   "kind": "name",
+   "value": "violet"
+  },
+  {
+   "kind": "name",
+   "value": "wheat"
+  },
+  {
+   "kind": "rgba",
+   "value": "rgba(5, 90, 142, 0.08)"
+  },
+  {
+   "kind": "rgba",
+   "value": "rgba(188, 188, 188, 0.57)"
+  },
+  {
+   "kind": "name",
+   "value": "crimson"
+  },
+  {
+   "kind": "hex6",
+   "value": "#730383"
+  },
+  {
+   "kind": "rgba",
+   "value": "rgba(128, 169, 38, 0.86)"
+  },
+  {
+   "kind": "hex6",
+   "value": "#0c0c05"
+  },
+  {
+   "kind": "hex3",
+   "value": "#16a"
+  },
+  {
+   "kind": "hex6",
+   "value": "#c90e52"
+  },
+  {
+   "kind": "hex6",
+   "value": "#3a3325"
+  },
+  {
+   "kind": "hex6",
+   "value": "#4c1914"
+  },
+  {
+   "kind": "hex8",
+   "value": "#4f9f3311"
+  },
+  {
+   "kind": "rgb",
+   "value": "rgb(249, 101, 66)"
+  },
+  {
+   "kind": "hsla",
+   "value": "hsla(73, 52%, 76%, 0.15)"
+  },
+  {
+   "kind": "hex6",
+   "value": "#15430b"
+  },
+  {
+   "kind": "name",
+   "value": "ivory"
+  },
+  {
+   "kind": "hex6",
+   "value": "#443238"
+  },
+  {
+   "kind": "hex6",
+   "value": "#3457a1"
+  },
+  {
+   "kind": "rgb",
+   "value": "rgb(75, 173, 161)"
+  },
+  {
+   "kind": "name",
+   "value": "blue"
+  },
+  {
+   "kind": "padded",
+   "value": "  #14233C"
+  },
+  {
+   "kind": "rgb",
+   "value": "rgb(206, 206, 206)"
+  },
+  {
+   "kind": "invalid",
+   "value": "rgb("
+  },
+  {
+   "kind": "hex6",
+   "value": "#0e3d1c"
+  },
+  {
+   "kind": "rgb",
+   "value": "rgb(64, 64, 64)"
+  },
+  {
+   "kind": "hex6",
+   "value": "#c09a64"
+  },
+  {
+   "kind": "hex3",
+   "value": "#214"
+  },
+  {
+   "kind": "invalid",
+   "value": "hsl(999"
+  },
+  {
+   "kind": "hex6",
+   "value": "#181d02"
+  },
+  {
+   "kind": "rgba",
+   "value": "rgba(254, 254, 254, 0.79)"
+  },
+  {
+   "kind": "object",
+   "value": {
+    "r": 11,
+    "g": 11,
+    "b": 11
+   }
+  },
+  {
+   "kind": "object",
+   "value": {
+    "r": 63,
+    "g": 171,
+    "b": 244
+   }
+  },
+  {
+   "kind": "hex6",
+   "value": "#1041a9"
+  },
+  {
+   "kind": "hex3",
+   "value": "#efb"
+  },
+  {
+   "kind": "name",
+   "value": "crimson"
+  },
+  {
+   "kind": "hex6",
+   "value": "#bc0925"
+  },
+  {
+   "kind": "padded",
+   "value": "\t#0C751B"
+  },
+  {
+   "kind": "hex8",
+   "value": "#6279523e"
+  },
+  {
+   "kind": "hex6",
+   "value": "#0a0e75"
+  },
+  {
+   "kind": "hex3",
+   "value": "#df5"
+  },
+  {
+   "kind": "hex8",
+   "value": "#4938356e"
+  },
+  {
+   "kind": "hsla",
+   "value": "hsla(176, 13%, 61%, 0.58)"
+  },
+  {
+   "kind": "hex3",
+   "value": "#511"
+  },
+  {
+   "kind": "hsl",
+   "value": "hsl(317, 46%, 52%)"
+  },
+  {
+   "kind": "hex6",
+   "value": "#524269"
+  },
+  {
+   "kind": "name",
+   "value": "yellow"
+  },
+  {
+   "kind": "hex6",
+   "value": "#026159"
+  },
+  {
+   "kind": "hex6",
+   "value": "#5f6df4"
+  },
+  {
+   "kind": "invalid",
+   "value": "chartrooze"
+  },
+  {
+   "kind": "hex6",
+   "value": "#c58712"
+  },
+  {
+   "kind": "name",
+   "value": "firebrick"
+  },
+  {
+   "kind": "hex6",
+   "value": "#04a457"
+  },
+  {
+   "kind": "hex6",
+   "value": "#242c22"
+  },
+  {
+   "kind": "hex4",
+   "value": "#9ca5"
+  },
+  {
+   "kind": "hsla",
+   "value": "hsla(154, 29%, 66%, 0.06)"
+  },
+  {
+   "kind": "hex6",
+   "value": "#768a41"
+  },
+  {
+   "kind": "hex6",
+   "value": "#1b118d"
+  },
+  {
+   "kind": "hex6",
+   "value": "#120614"
+  },
+  {
+   "kind": "hex6",
+   "value": "#163420"
+  },
+  {
+   "kind": "hex6",
+   "value": "#533da4"
+  },
+  {
+   "kind": "hex6",
+   "value": "#77e33d"
+  },
+  {
+   "kind": "rgba",
+   "value": "rgba(239, 239, 239, 0.42)"
+  },
+  {
+   "kind": "rgba",
+   "value": "rgba(63, 49, 194, 0.08)"
+  },
+  {
+   "kind": "hex3",
+   "value": "#177"
+  },
+  {
+   "kind": "invalid",
+   "value": "rgb("
+  },
+  {
+   "kind": "rgb",
+   "value": "rgb(145, 68, 186)"
+  },
+  {
+   "kind": "name",
+   "value": "silver"
+  },
+  {
+   "kind": "rgba",
+   "value": "rgba(213, 37, 27, 0.38)"
+  },
+  {
+   "kind": "name",
+   "value": "navy"
+  },
+  {
+   "kind": "hex6",
+   "value": "#b14679"
+  },
+  {
+   "kind": "hex6",
+   "value": "#8bdf74"
+  },
+  {
+   "kind": "hex6",
+   "value": "#1b0b1a"
+  },
+  {
+   "kind": "hex3",
+   "value": "#b92"
+  },
+  {
+   "kind": "hex4",
+   "value": "#058e"
+  },
+  {
+   "kind": "object",
+   "value": {
+    "r": 249,
+    "g": 54,
+    "b": 141
+   }
+  },
+  {
+   "kind": "name",
+   "value": "indigo"
+  },
+  {
+   "kind": "hex3",
+   "value": "#1a0"
+  },
+  {
+   "kind": "name",
+   "value": "ivory"
+  },
+  {
+   "kind": "hex6",
+   "value": "#3ab147"
+  },
+  {
+   "kind": "name",
+   "value": "khaki"
+  },
+  {
+   "kind": "hex8",
+   "value": "#753d012d"
+  },
+  {
+   "kind": "hex6",
+   "value": "#526a95"
+  },
+  {
+   "kind": "object",
+   "value": {
+    "r": 245,
+    "g": 194,
+    "b": 248
+   }
+  },
+  {
+   "kind": "hex6",
+   "value": "#1cc90a"
+  },
+  {
+   "kind": "hex6",
+   "value": "#043a05"
+  },
+  {
+   "kind": "hex8",
+   "value": "#001d1133"
+  },
+  {
+   "kind": "hex6",
+   "value": "#44111a"
+  },
+  {
+   "kind": "hex6",
+   "value": "#2d2e4f"
+  },
+  {
+   "kind": "hex3",
+   "value": "#59c"
+  },
+  {
+   "kind": "hex6",
+   "value": "#8bb012"
+  },
+  {
+   "kind": "rgb",
+   "value": "rgb(247, 44, 99)"
+  },
+  {
+   "kind": "hex6",
+   "value": "#1d7816"
+  },
+  {
+   "kind": "name",
+   "value": "magenta"
+  },
+  {
+   "kind": "hex6",
+   "value": "#260bbc"
+  },
+  {
+   "kind": "hex6",
+   "value": "#02a67f"
+  },
+  {
+   "kind": "hex3",
+   "value": "#876"
+  },
+  {
+   "kind": "object",
+   "value": {
+    "r": 204,
+    "g": 97,
+    "b": 190
+   }
+  },
+  {
+   "kind": "hsla",
+   "value": "hsla(240, 51%, 47%, 0.70)"
+  },
+  {
+   "kind": "hex6",
+   "value": "#ea1433"
+  },
+  {
+   "kind": "hex6",
+   "value": "#101944"
+  },
+  {
+   "kind": "invalid",
+   "value": "#gggggg"
+  },
+  {
+   "kind": "hex6",
+   "value": "#980daa"
+  },
+  {
+   "kind": "hsl",
+   "value": "hsl(88, 57%, 58%)"
+  },
+  {
+   "kind": "hex4",
+   "value": "#5d80"
+  },
+  {
+   "kind": "hsl",
+   "value": "hsl(52, 84%, 26%)"
+  },
+  {
+   "kind": "hex6",
+   "value": "#634840"
+  },
+  {
+   "kind": "hex6",
+   "value": "#32202a"
+  },
+  {
+   "kind": "hsl",
+   "value": "hsl(196, 16%, 85%)"
+  },
+  {
+   "kind": "hex8",
+   "value": "#0c1e0058"
+  },
+  {
+   "kind": "name",
+   "value": "beige"
+  },
+  {
+   "kind": "hex6",
+   "value": "#5dad10"
+  },
+  {
+   "kind": "hex3",
+   "value": "#49a"
+  },
+  {
+   "kind": "rgb",
+   "value": "rgb(247, 124, 53)"
+  },
+  {
+   "kind": "hex8",
+   "value": "#6d3d8823"
+  },
+  {
+   "kind": "hex8",
+   "value": "#4b00962d"
+  },
+  {
+   "kind": "hex6",
+   "value": "#091e5a"
+  },
+  {
+   "kind": "hex3",
+   "value": "#b77"
+  },
+  {
+   "kind": "rgb",
+   "value": "rgb(209, 209, 209)"
+  },
+  {
+   "kind": "hsl",
+   "value": "hsl(26, 18%, 44%)"
+  },
+  {
+   "kind": "hex3",
+   "value": "#094"
+  },
+  {
+   "kind": "hex6",
+   "value": "#1cac41"
+  },
+  {
+   "kind": "hex6",
+   "value": "#04451b"
+  },
+  {
+   "kind": "hex4",
+   "value": "#a83c"
+  },
+  {
+   "kind": "object",
+   "value": {
+    "r": 203,
+    "g": 36,
+    "b": 176
+   }
+  },
+  {
+   "kind": "invalid",
+   "value": "chartrooze"
+  },
+  {
+   "kind": "hex6",
+   "value": "#41027e"
+  },
+  {
+   "kind": "hex6",
+   "value": "#4a422b"
+  },
+  {
+   "kind": "hex6",
+   "value": "#0c2f5d"
+  },
+  {
+   "kind": "hex6",
+   "value": "#142fbc"
+  },
+  {
+   "kind": "hex6",
+   "value": "#118d4a"
+  },
+  {
+   "kind": "hex3",
+   "value": "#d40"
+  },
+  {
+   "kind": "rgb",
+   "value": "rgb(248, 12, 187)"
+  },
+  {
+   "kind": "object",
+   "value": {
+    "r": 77,
+    "g": 77,
+    "b": 77
+   }
+  },
+  {
+   "kind": "hex4",
+   "value": "#341a"
+  },
+  {
+   "kind": "hex6",
+   "value": "#6a5784"
+  },
+  {
+   "kind": "hex6",
+   "value": "#2ba3bc"
+  },
+  {
+   "kind": "hex6",
+   "value": "#9449af"
+  },
+  {
+   "kind": "hex8",
+   "value": "#21343b0e"
+  },
+  {
+   "kind": "hsl",
+   "value": "hsl(238, 80%, 20%)"
+  },
+  {
+   "kind": "invalid",
+   "value": "#gggggg"
+  },
+  {
+   "kind": "hex6",
+   "value": "#071530"
+  },
+  {
+   "kind": "hex6",
+   "value": "#147a5a"
+  },
+  {
+   "kind": "hex6",
+   "value": "#523536"
+  },
+  {
+   "kind": "hex6",
+   "value": "#952a1e"
+  },
+  {
+   "kind": "invalid",
+   "value": "#gggggg"
+  }
+ ]
+}

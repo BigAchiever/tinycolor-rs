@@ -1,0 +1,34 @@
+# Build-context hygiene.
+#
+# The rule this file enforces: the image must never inherit an artifact the
+# host built. Everything the container tests, it compiles itself in stage 1,
+# so `docker run` output is evidence about this image and nothing else.
+
+# Rust build output — stage 1 builds its own.
+target/
+
+# npm output — stage 2 runs `npm ci` from the committed lockfile.
+node_modules/
+
+# wasm-pack nodejs output. Excluded deliberately: if the host's copy leaked in,
+# the container could report 45/45 for a module it never built.
+tests/original/pkg/
+
+# wasm-pack browser output, an intermediate of scripts/build-demo.mjs. The demo
+# page loads web/tinycolor.js (committed, wasm inlined as base64), not this.
+web/pkg/
+
+# Recorded fuzz evidence from host runs. The container writes its own
+# fuzz/logs/latest.json live; keeping these out means the two cannot be confused.
+fuzz/logs/
+
+# VCS, editor and local tooling state.
+.git/
+.gitignore
+.claude/
+.DS_Store
+*.swp
+
+# Used by the build, not needed inside the image.
+Dockerfile
+.dockerignore

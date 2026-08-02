@@ -1,0 +1,34 @@
+differential fuzz: upstream(V8) vs port(wasm)  seed=1  budget=300s
+21 generators x 45 operations per case
+
+  0%  cases=200  comparisons=9000  divergences=0  peakHandles=13200
+  5%  cases=37200  comparisons=1674000  divergences=0  peakHandles=13200
+  10%  cases=73200  comparisons=3294000  divergences=0  peakHandles=13200
+  15%  cases=110800  comparisons=4986000  divergences=0  peakHandles=13200
+  20%  cases=148200  comparisons=6669000  divergences=0  peakHandles=13200
+  25%  cases=186000  comparisons=8370000  divergences=0  peakHandles=13200
+  30%  cases=222600  comparisons=10017000  divergences=0  peakHandles=13200
+  35%  cases=259600  comparisons=11682000  divergences=0  peakHandles=13200
+  40%  cases=296200  comparisons=13329000  divergences=0  peakHandles=13200
+  45%  cases=332800  comparisons=14976000  divergences=0  peakHandles=13200
+  50%  cases=368800  comparisons=16596000  divergences=0  peakHandles=13200
+  55%  cases=399800  comparisons=17991000  divergences=0  peakHandles=13200
+  60%  cases=432600  comparisons=19467000  divergences=0  peakHandles=13200
+  65%  cases=467000  comparisons=21015000  divergences=0  peakHandles=13200
+  70%  cases=500400  comparisons=22518000  divergences=0  peakHandles=13200
+  75%  cases=534000  comparisons=24030000  divergences=0  peakHandles=13200
+  80%  cases=564400  comparisons=25398000  divergences=0  peakHandles=13200
+  85%  cases=598200  comparisons=26919000  divergences=0  peakHandles=13200
+  90%  cases=629000  comparisons=28305000  divergences=0  peakHandles=13200
+  95%  cases=662800  comparisons=29826000  divergences=0  peakHandles=13200
+
+
+no divergences
+
+────────────────────────────────────────────────────────────────
+elapsed        300.0s
+cases          689,345
+comparisons    31,020,525  (103,401/s)
+divergences    0
+────────────────────────────────────────────────────────────────
+wrote fuzz/logs/latest.json

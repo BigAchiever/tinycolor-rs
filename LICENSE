@@ -1,0 +1,40 @@
+MIT License
+
+Copyright (c) 2026 Danish Ali Siddiqui
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+---
+
+This licence covers the port: everything in crates/, shim/, fuzz/, bench/,
+scripts/, tests/run-all.mjs and tests/original/tinycolor.js.
+
+It does NOT cover the upstream material vendored here, which remains the work
+of Brian Grinstead under the MIT licence reproduced verbatim in
+upstream/LICENSE:
+
+  tests/original/test.js              upstream test suite, unmodified
+  tests/original/package.json         unmodified
+  tests/deno_asserts@0.168.0.mjs      unmodified
+  upstream/tinycolor.reference.js     unmodified, used only as the fuzz oracle
+  web/index.html                      upstream demo page, unmodified
+  web/demo/demo.css                   unmodified
+
+Those files are hash-pinned in tests/HASHES.txt and verifiable with
+./scripts/verify-hashes.sh. Upstream commit: b49018c9f2dbca313d80d7a4dad25e26143cfe01

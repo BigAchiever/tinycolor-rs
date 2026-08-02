@@ -1,0 +1,461 @@
+{
+  "publishable": true,
+  "gates": [
+    {
+      "id": "P1a",
+      "name": "AC power or battery >= 80%",
+      "pass": true,
+      "detail": "Now drawing from 'Battery Power', 89%"
+    },
+    {
+      "id": "P1b",
+      "name": "Low Power Mode off",
+      "pass": true,
+      "detail": "lowpowermode         0"
+    },
+    {
+      "id": "P1c",
+      "name": "battery >= 30% (no aggressive power management)",
+      "pass": true,
+      "detail": "89%"
+    },
+    {
+      "id": "P3",
+      "name": "disk >= 2GB free",
+      "pass": true,
+      "detail": "6.4 GB"
+    }
+  ],
+  "generated_at_note": "timestamp intentionally omitted; see git history",
+  "machine": {
+    "platform": "darwin",
+    "arch": "arm64",
+    "cpus": "Apple M4",
+    "node": "v20.19.5",
+    "v8": "11.3.244.8-node.30",
+    "rustc": "rustc 1.96.0 (ac68faa20 2026-05-25)"
+  },
+  "corpus": {
+    "path": "bench/corpus.json",
+    "sha256": "44a58282c96d04b699985df1d701757ee9d4d7375396e41ffc745ec38a87d3e1",
+    "size": 512
+  },
+  "methodology": "bench/METHODOLOGY.md",
+  "provenance": {
+    "note": "Both artifacts below run the byte-identical upstream suite via tests/original/tinycolor.js, selected by TINYCOLOR_TRANSPORT. Neither number is quoted for an unverified build.",
+    "wasm-shipped": {
+      "upstream_suite": "45/45",
+      "differential_fuzz": "31,020,525 comparisons / 0 divergences (300s, seed 1)"
+    },
+    "native": {
+      "upstream_suite": "45/45",
+      "differential_fuzz": "3,343,635 comparisons / 0 divergences (120s, seed 11)"
+    }
+  },
+  "warmup_ops_per_config": 200000,
+  "reps_per_row": 5,
+  "throughput": [
+    {
+      "row": "to-hex-string",
+      "config": "upstream",
+      "headline": true,
+      "iterations": 200000,
+      "reps": 5,
+      "mean_ns": 644.638305,
+      "rep_spread_pct": 29.5,
+      "batch_p99_ns": 4694.833,
+      "checksum_for_this_n": 94,
+      "mode": "batch"
+    },
+    {
+      "row": "to-hex-string",
+      "config": "wasm-shipped",
+      "headline": true,
+      "iterations": 50000,
+      "reps": 5,
+      "mean_ns": 4990.84072,
+      "rep_spread_pct": 24.2,
+      "batch_p99_ns": 31141.583,
+      "checksum_for_this_n": 91,
+      "mode": "batch"
+    },
+    {
+      "row": "parse-only",
+      "config": "upstream",
+      "headline": false,
+      "iterations": 200000,
+      "reps": 5,
+      "mean_ns": 464.251855,
+      "rep_spread_pct": 22.5,
+      "batch_p99_ns": 519.25,
+      "checksum_for_this_n": 3,
+      "mode": "batch"
+    },
+    {
+      "row": "parse-only",
+      "config": "wasm-shipped",
+      "headline": false,
+      "iterations": 50000,
+      "reps": 5,
+      "mean_ns": 4475.416660000001,
+      "rep_spread_pct": 3,
+      "batch_p99_ns": 20170.375,
+      "checksum_for_this_n": 3,
+      "mode": "batch"
+    },
+    {
+      "row": "to-rgb-string",
+      "config": "upstream",
+      "headline": false,
+      "iterations": 200000,
+      "reps": 5,
+      "mean_ns": 569.9720199999999,
+      "rep_spread_pct": 36.5,
+      "batch_p99_ns": 624.25,
+      "checksum_for_this_n": 49,
+      "mode": "batch"
+    },
+    {
+      "row": "to-rgb-string",
+      "config": "wasm-shipped",
+      "headline": false,
+      "iterations": 50000,
+      "reps": 5,
+      "mean_ns": 4973.082579999999,
+      "rep_spread_pct": 13.8,
+      "batch_p99_ns": 37119.542,
+      "checksum_for_this_n": 98,
+      "mode": "batch"
+    },
+    {
+      "row": "to-hsl-string",
+      "config": "upstream",
+      "headline": false,
+      "iterations": 200000,
+      "reps": 5,
+      "mean_ns": 644.7918549999998,
+      "rep_spread_pct": 3.6,
+      "batch_p99_ns": 788.959,
+      "checksum_for_this_n": 14,
+      "mode": "batch"
+    },
+    {
+      "row": "to-hsl-string",
+      "config": "wasm-shipped",
+      "headline": false,
+      "iterations": 50000,
+      "reps": 5,
+      "mean_ns": 4859.812539999998,
+      "rep_spread_pct": 16.9,
+      "batch_p99_ns": 16870,
+      "checksum_for_this_n": 87,
+      "mode": "batch"
+    },
+    {
+      "row": "lighten",
+      "config": "upstream",
+      "headline": false,
+      "iterations": 100000,
+      "reps": 5,
+      "mean_ns": 1663.51035,
+      "rep_spread_pct": 5.7,
+      "batch_p99_ns": 2967.959,
+      "checksum_for_this_n": 9,
+      "mode": "batch"
+    },
+    {
+      "row": "lighten",
+      "config": "wasm-shipped",
+      "headline": false,
+      "iterations": 50000,
+      "reps": 5,
+      "mean_ns": 8534.65,
+      "rep_spread_pct": 3.5,
+      "batch_p99_ns": 22151.167,
+      "checksum_for_this_n": 6,
+      "mode": "batch"
+    },
+    {
+      "row": "mix",
+      "config": "upstream",
+      "headline": false,
+      "iterations": 100000,
+      "reps": 5,
+      "mean_ns": 1464.8858300000002,
+      "rep_spread_pct": 7.9,
+      "batch_p99_ns": 2546.458,
+      "checksum_for_this_n": 93,
+      "mode": "batch"
+    },
+    {
+      "row": "mix",
+      "config": "wasm-shipped",
+      "headline": false,
+      "iterations": 50000,
+      "reps": 5,
+      "mean_ns": 7101.7957799999995,
+      "rep_spread_pct": 9.2,
+      "batch_p99_ns": 27284.833,
+      "checksum_for_this_n": 0,
+      "mode": "batch"
+    },
+    {
+      "row": "luminance",
+      "config": "upstream",
+      "headline": false,
+      "iterations": 200000,
+      "reps": 5,
+      "mean_ns": 625.1068349999998,
+      "rep_spread_pct": 5.7,
+      "batch_p99_ns": 758.083,
+      "checksum_for_this_n": 3287094892,
+      "mode": "batch"
+    },
+    {
+      "row": "luminance",
+      "config": "wasm-shipped",
+      "headline": false,
+      "iterations": 50000,
+      "reps": 5,
+      "mean_ns": 4203.147599999999,
+      "rep_spread_pct": 15.8,
+      "batch_p99_ns": 18875.917,
+      "checksum_for_this_n": 519438780,
+      "mode": "batch"
+    },
+    {
+      "row": "to-name",
+      "config": "upstream",
+      "headline": false,
+      "iterations": 200000,
+      "reps": 5,
+      "mean_ns": 645.1060299999999,
+      "rep_spread_pct": 10.2,
+      "batch_p99_ns": 730.667,
+      "checksum_for_this_n": 6,
+      "mode": "batch"
+    },
+    {
+      "row": "to-name",
+      "config": "wasm-shipped",
+      "headline": false,
+      "iterations": 50000,
+      "reps": 5,
+      "mean_ns": 4807.019939999999,
+      "rep_spread_pct": 39.1,
+      "batch_p99_ns": 49011.667,
+      "checksum_for_this_n": 108,
+      "mode": "batch"
+    },
+    {
+      "row": "round-trip",
+      "config": "upstream",
+      "headline": false,
+      "iterations": 100000,
+      "reps": 5,
+      "mean_ns": 1694.7725300000002,
+      "rep_spread_pct": 19.6,
+      "batch_p99_ns": 1610.541,
+      "checksum_for_this_n": 89,
+      "mode": "batch"
+    },
+    {
+      "row": "round-trip",
+      "config": "wasm-shipped",
+      "headline": false,
+      "iterations": 50000,
+      "reps": 5,
+      "mean_ns": 9423.47414,
+      "rep_spread_pct": 17.9,
+      "batch_p99_ns": 41014.458,
+      "checksum_for_this_n": 1,
+      "mode": "batch"
+    }
+  ],
+  "equivalence": [
+    {
+      "row": "to-hex-string",
+      "n": 20000,
+      "upstream": 91,
+      "port": 91,
+      "agree": true
+    },
+    {
+      "row": "parse-only",
+      "n": 20000,
+      "upstream": 0,
+      "port": 0,
+      "agree": true
+    },
+    {
+      "row": "to-rgb-string",
+      "n": 20000,
+      "upstream": 62,
+      "port": 62,
+      "agree": true
+    },
+    {
+      "row": "to-hsl-string",
+      "n": 20000,
+      "upstream": 61,
+      "port": 61,
+      "agree": true
+    },
+    {
+      "row": "lighten",
+      "n": 20000,
+      "upstream": 11,
+      "port": 11,
+      "agree": true
+    },
+    {
+      "row": "mix",
+      "n": 20000,
+      "upstream": 95,
+      "port": 95,
+      "agree": true
+    },
+    {
+      "row": "luminance",
+      "n": 20000,
+      "upstream": 2499936779,
+      "port": 2499936779,
+      "agree": true
+    },
+    {
+      "row": "to-name",
+      "n": 20000,
+      "upstream": 16,
+      "port": 16,
+      "agree": true
+    },
+    {
+      "row": "round-trip",
+      "n": 20000,
+      "upstream": 1,
+      "port": 1,
+      "agree": true
+    }
+  ],
+  "equivalence_all_agree": true,
+  "startup": [
+    {
+      "label": "node + upstream JS",
+      "command": "node -e require('./upstream/tinycolor.reference.js')('red').toHexString()",
+      "reps": 20,
+      "p50_ms": 18.426792,
+      "p99_ms": 18.821084,
+      "min_ms": 17.956334,
+      "max_ms": 18.821084
+    },
+    {
+      "label": "node + port (wasm)",
+      "command": "node -e require('./tests/original/tinycolor.js')('red').toHexString()",
+      "reps": 20,
+      "p50_ms": 71.145875,
+      "p99_ms": 82.872875,
+      "min_ms": 69.579875,
+      "max_ms": 82.872875
+    },
+    {
+      "label": "native rust binary",
+      "command": "./target/release/tinycolor bench to-hex 1",
+      "reps": 20,
+      "p50_ms": 3.161041,
+      "p99_ms": 3.953334,
+      "min_ms": 2.962792,
+      "max_ms": 3.953334
+    },
+    {
+      "label": "node + port (native ipc)",
+      "command": "node -e process.env.TINYCOLOR_TRANSPORT='native';require('./tests/original/tinycolor.js')('red').toHexString()",
+      "reps": 20,
+      "p50_ms": 22.703875,
+      "p99_ms": 26.015292,
+      "min_ms": 22.034,
+      "max_ms": 26.015292
+    }
+  ],
+  "rss": [
+    {
+      "label": "node + upstream JS",
+      "command": "node -e require('./upstream/tinycolor.reference.js')('red').toHexString()",
+      "max_rss_bytes": 35962880,
+      "max_rss_mb": 34.3
+    },
+    {
+      "label": "node + port (wasm)",
+      "command": "node -e require('./tests/original/tinycolor.js')('red').toHexString()",
+      "max_rss_bytes": 90537984,
+      "max_rss_mb": 86.34
+    },
+    {
+      "label": "native rust binary",
+      "command": "./target/release/tinycolor bench to-hex 1",
+      "max_rss_bytes": 4603904,
+      "max_rss_mb": 4.39
+    },
+    {
+      "label": "node + port (native ipc)",
+      "command": "node -e process.env.TINYCOLOR_TRANSPORT='native';require('./tests/original/tinycolor.js')('red').toHexString()",
+      "max_rss_bytes": 42172416,
+      "max_rss_mb": 40.22
+    }
+  ],
+  "native": [
+    {
+      "workload": "parse-hex",
+      "iterations": 1000000,
+      "nanos_total": 693869625,
+      "nanos_per_op": 693.87
+    },
+    {
+      "workload": "to-hex",
+      "iterations": 1000000,
+      "nanos_total": 199220291,
+      "nanos_per_op": 199.22
+    },
+    {
+      "workload": "to-rgb-string",
+      "iterations": 1000000,
+      "nanos_total": 158921500,
+      "nanos_per_op": 158.922
+    },
+    {
+      "workload": "to-hsl-string",
+      "iterations": 1000000,
+      "nanos_total": 315328250,
+      "nanos_per_op": 315.328
+    },
+    {
+      "workload": "lighten",
+      "iterations": 1000000,
+      "nanos_total": 951859334,
+      "nanos_per_op": 951.859
+    },
+    {
+      "workload": "mix",
+      "iterations": 1000000,
+      "nanos_total": 401674709,
+      "nanos_per_op": 401.675
+    },
+    {
+      "workload": "luminance",
+      "iterations": 1000000,
+      "nanos_total": 4020792,
+      "nanos_per_op": 4.021
+    },
+    {
+      "workload": "round-trip",
+      "iterations": 1000000,
+      "nanos_total": 2187508000,
+      "nanos_per_op": 2187.508
+    },
+    {
+      "workload": "noop",
+      "iterations": 1000000,
+      "nanos_total": 746250,
+      "nanos_per_op": 0.746
+    }
+  ]
+}
