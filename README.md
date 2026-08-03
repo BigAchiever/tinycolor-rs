@@ -38,9 +38,11 @@ Every claim, and the exact command or file that settles it.
 | Behavioural checksums agree | all 9 rows, at equal *n* | `bench/results.json` → `equivalence_all_agree: true` |
 | Per-op throughput | **4.8×–9.6× slower** than upstream JS | `node bench/run.mjs --reps 5` |
 | Startup / RSS | 3.2 ms / 4.4 MB native; wasm loses on both | `bench/results.json` |
-| Documented divergences | 21 (`D-001`…`D-021`) | `DECISIONS.md` |
+| Documented divergences | 22 (`D-001`…`D-022`) | `DECISIONS.md` |
 
 `tests/original/test.js` contains 432 assertion call sites (79 `assert`, 350 `assertEquals`, 3 `assertThrows`); several run inside loops, so roughly 432 assertion call sites execute per run.
+
+| Upstream bug found and filed | [bgrins/TinyColor#280](https://github.com/bgrins/TinyColor/issues/280) — unbounded loop in `analogous()`/`monochromatic()` | `UPSTREAM-BUG-REPORT.md`, D-022 |
 
 Fuzz comparison is **bit-level exact**, not epsilon-tolerant: every returned number is canonicalised to its raw IEEE-754 bit pattern (`fuzz/harness.mjs`, `canon()`), so a 1-ULP difference cannot hide, and `NaN`, `±Infinity` and `-0` are each encoded distinctly rather than being flattened together by JSON (D-016).
 
@@ -89,6 +91,37 @@ Apple M4 (fanless MacBook Air), macOS 26.5.2 / arm64, node v20.19.5 / V8 11.3.24
 | mix | 1,465 ns | 7,102 ns | **4.8× slower** |
 
 **Read the shape, not the magnitudes.** Upstream separates its cheapest and dearest row by ~1.2 µs; the port's rows all sit between 4.2 and 9.4 µs regardless of how much colour maths each does. That flat ~4 µs floor is the answer: the cost is the JSON-RPC round trip, not the arithmetic. `luminance` costs 4.2 µs through the bridge; the Rust that does the work is 4.0 ns of it.
+
+### Where the 8× actually goes
+
+The natural reading of the table above is "the Rust is slow". It isn't. Peeling
+the stack apart one layer at a time, same operation, medians of 5 reps:
+
+| layer | ns/op | added by this layer |
+|---|---|---|
+| **A** upstream JS on V8 | 1,033 | — |
+| **D** the ported Rust, native, no bridge | 1,325 | +292 |
+| **C** + wasm boundary + `serde_json` | 4,456 | +3,131 |
+| **B** + JS shim (`JSON.stringify`/`parse`, handle table, `FinalizationRegistry`) | 8,374 | +3,918 |
+
+**The ported colour logic runs at 1.28× upstream. The shipped artifact runs at
+8.11×. Of the 7,341 ns gap, 96% is bridge** — split roughly evenly between the
+wasm/serde boundary and the JS shim, and constant per call regardless of how
+much work the operation does.
+
+Reproduce it:
+
+```bash
+node bench/js-bench.cjs --config upstream     --row to-hex-string --n 100000  # A
+./target/release/tinycolor bench parse-hex 1000000                            # D
+node bench/js-bench.cjs --config wasm-raw     --row rpc-new      --n 50000    # C
+node bench/js-bench.cjs --config wasm-shipped --row to-hex-string --n 50000   # B
+```
+
+Config **C** is the useful one: it calls the wasm `dispatch()` export directly
+with a literal request string, so no JSON work happens in JavaScript. The gap
+between C and B is therefore the shim alone; the gap between D and C is the
+wasm boundary plus `serde_json` parsing inside Rust.
 
 That is the bill for **D-001**, and it is the same decision that bought the strongest correctness evidence available — the upstream suite running with zero bytes changed. Both facts come from one trade, made with open eyes.
 
@@ -215,14 +248,37 @@ make demo        # http://localhost:8099/
 
 **One clarification, because it looks like the thing that is disallowed.** `upstream/tinycolor.reference.js` is the pinned original JavaScript. It exists **only** as the differential-fuzz oracle and as the benchmark's `--config upstream` baseline. It is not linked, imported or executed by the port, by either transport, or by the test path — `tests/original/tinycolor.js` never references it. Confirm with `grep -rn "reference.js" crates shim tests web`, which returns exactly one line, in the hash manifest; or delete the file and re-run `node tests/run-all.mjs`, which still reports 45/45.
 
-### No upstream bug was filed, on purpose
+### The upstream bug, and the two that were not filed
 
-Two genuine candidates were investigated to conclusion and written up rather than filed:
+**Filed: [bgrins/TinyColor#280](https://github.com/bgrins/TinyColor/issues/280)** —
+`analogous()` and `monochromatic()` loop unboundedly on negative or fractional
+counts and exhaust the process heap. Both decrement a counter and test it for
+truthiness, so a counter that never lands exactly on `0` never terminates, and
+each pass allocates a colour. Six cases confirmed (two functions × `-1`, `1.5`,
+`0.5`), all exit 134. Verified against current `main` before filing, not just
+the pinned commit.
 
-- **D-011** — the `parseInt`-on-number defect above: real, and **proven unobservable** through the public API.
-- **D-007** — `[\s|\(]+` in upstream's matcher means a literal `|` is an accepted CSS separator, so `tinycolor("rgb|255|0|0")` parses to `#ff0000` and reports `isValid() === true`. Almost certainly an escaping slip, but TinyColor's stated design goal is that input be as permissive as possible, so reporting it would be filing a bug against a documented intention. The port reproduces it and the fuzzer emits pipe separators on purpose.
+Upstream already guards the same input shape in `polyad()`
+(`if (isNaN(number) || number <= 0) throw`), so the hazard is recognised in one
+of the three combination functions and not the other two. Full report in
+`UPSTREAM-BUG-REPORT.md`; the port's deliberate divergence is **D-022**.
 
-Filing either would have been worth three points and would have been noise in someone's issue tracker.
+Two further candidates were investigated to conclusion and **deliberately not
+filed**, because neither is a defect:
+
+- **D-011** — the `parseInt`-on-number quirk in `bound01`: real, and **proven
+  unobservable** through the public API. The constructor's `< 1` rounding
+  absorbs it, and `Number#toString` normalisation caps the error below the
+  rounding threshold, so it cannot be pushed into view.
+- **D-007** — `[\s|\(]+` in upstream's matcher means a literal `|` is an
+  accepted CSS separator, so `tinycolor("rgb|255|0|0")` parses to `#ff0000` and
+  reports `isValid() === true`. Almost certainly an escaping slip, but
+  TinyColor's stated design goal is that input be as permissive as possible, so
+  reporting it would be filing a bug against a documented intention. The port
+  reproduces it and the fuzzer emits pipe separators on purpose.
+
+One filed, two withheld. The bar was "is this a defect a maintainer should act
+on", not "is this worth three points".
 
 ---
 

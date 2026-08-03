@@ -41,25 +41,18 @@ Run this once. It builds everything and warms every cache so no shot is
 waiting on a compile.
 
 ```bash
-cd /Users/danishalisiddiqui/Dev-Setups/1aug
-cargo build --release -p tinycolor-cli
-wasm-pack build crates/wasm --target nodejs --out-dir ../../tests/original/pkg --out-name tinycolor_wasm
-node tests/run-all.mjs                                    # warm
-TINYCOLOR_TRANSPORT=native node tests/run-all.mjs          # warm
+make demo-prep
 ```
 
-> ### ⚠️ Production gotcha — back up the fuzz log first
+That builds both artifacts, warms both transports, checks the hashes, and tells
+you what to open where.
+
+> ### Note on the fuzz log
 >
-> `node fuzz/harness.mjs` **overwrites `fuzz/logs/latest.json`** on every run,
-> and `latest.json` is the archived evidence for the *native* fuzz claim
-> (seed 11, 120s, 3,343,635 comparisons). A live fuzz run during recording will
-> destroy it. Back it up before you record and restore it after:
->
-> ```bash
-> cp fuzz/logs/latest.json /tmp/latest.json.bak     # BEFORE recording
-> # ... record ...
-> cp /tmp/latest.json.bak fuzz/logs/latest.json     # AFTER recording
-> ```
+> `node fuzz/harness.mjs` overwrites `fuzz/logs/latest.json` on every run, but
+> the archived evidence now lives in its own files
+> (`run-wasm-300s-seed1.json` and `run-native-120s-seed11.json`), so a live
+> fuzz run during recording cannot destroy it. Record freely.
 
 **Terminal setup:** one window, large font (≥ 18pt), dark theme, ~100 cols.
 Clear scrollback between segments (`clear`) so each shot starts empty.

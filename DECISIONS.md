@@ -34,6 +34,24 @@ JSON string. Colours live in a handle table (`SLAB`) rather than being
 serialised in and out, which preserves JS object identity (`tinycolor(x) === x`)
 and makes the mutating chain methods behave as they do upstream.
 
+**What it costs, measured.** The bridge is ~7 µs per user-visible call, and
+that is 96% of the port's throughput gap against upstream. Peeling the layers
+apart on the same operation (medians of 5 reps, `to-hex-string`):
+
+| layer | ns/op |
+|---|---|
+| upstream JS on V8 | 1,033 |
+| the ported Rust, native, no bridge | 1,325 |
+| + wasm boundary + `serde_json` | 4,456 |
+| + JS shim (JSON, handle table, finalizer) | 8,374 |
+
+The ported logic is 1.28× upstream. The shipped artifact is 8.11×. Per-method
+`wasm_bindgen` exports would very likely land near 500 ns, so this decision is
+expensive and the price was underestimated when it was made. It is recorded
+here rather than argued away: the trade bought the unmodified upstream suite
+driving the port through a single function, and that evidence is worth more to
+this project than throughput. See the README for the reproduce commands.
+
 The same protocol serving both transports is what made **D-012** detectable:
 the native and wasm builds disagreed, and that only surfaces when both run the
 same cases.

@@ -110,6 +110,9 @@ bench: build node_modules ## measure throughput, startup and RSS -> bench/result
 
 # web/tinycolor.js is committed with the wasm inlined as base64, so this needs
 # no build step — index.html is upstream's own demo page, byte-identical.
+demo-prep: ## warm every cache and dry-run every on-camera command before recording
+	@./scripts/demo-prep.sh
+
 demo: ## serve upstream's demo page, running on the Rust port, at :8099
 	@echo "==> http://localhost:$(PORT)/   (ctrl-c to stop)"
 	$(PYTHON) -m http.server $(PORT) --directory web
