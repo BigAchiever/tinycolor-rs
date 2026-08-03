@@ -42,6 +42,7 @@ Every claim, and the exact command or file that settles it.
 
 `tests/original/test.js` contains 432 assertion call sites (79 `assert`, 350 `assertEquals`, 3 `assertThrows`); several run inside loops, so roughly 432 assertion call sites execute per run.
 
+| **Live demo** | [bigachiever.github.io/tinycolor-rs](https://bigachiever.github.io/tinycolor-rs/) — upstream's own demo page, unmodified, every swatch computed in Rust | `web/` |
 | Upstream bug found and filed | [bgrins/TinyColor#280](https://github.com/bgrins/TinyColor/issues/280) — unbounded loop in `analogous()`/`monochromatic()` | `UPSTREAM-BUG-REPORT.md`, D-022 |
 
 Fuzz comparison is **bit-level exact**, not epsilon-tolerant: every returned number is canonicalised to its raw IEEE-754 bit pattern (`fuzz/harness.mjs`, `canon()`), so a 1-ULP difference cannot hide, and `NaN`, `±Infinity` and `-0` are each encoded distinctly rather than being flattened together by JSON (D-016).
@@ -327,6 +328,30 @@ Overridable make variables: `SECONDS`, `LONG_SECONDS`, `SEED`, `TRANSPORT`, `REP
 - **The suite passing 45/45 is a statement about upstream's coverage**, not proof of total equivalence. The fuzz runs are the wider claim, and they are bounded by the same generators.
 - **`polyad` is excluded from fuzzing**, deliberately: upstream comments the prototype method out pending [bgrins/TinyColor#254](https://github.com/bgrins/TinyColor/issues/254), so the reference throws for every input and fuzzing it produced ~11,000 meaningless divergences (D-015). The port implements it anyway, because the disabled test expects it.
 - **No fuzz run is a proof.** All three are reproducible from their seeds; none is exhaustive.
+
+## Live demo
+
+<https://bigachiever.github.io/tinycolor-rs/>
+
+This is upstream's own `index.html` from the pinned commit, byte-identical, with
+one substitution: the `tinycolor.js` it loads is the Rust port compiled to
+WebAssembly and inlined as base64, so a plain `<script src>` works with no async
+init and the page needed no edit at all.
+
+Published from the `gh-pages` branch, built by `scripts/build-demo.mjs`. Rebuild
+it with:
+
+```bash
+wasm-pack build crates/wasm --target no-modules \
+  --out-dir ../../web/pkg --out-name tinycolor_wasm
+node scripts/build-demo.mjs
+```
+
+Worth checking in the console: `tinycolor("#111").getLuminance()` returns
+`0.005605391624202723` — V8's exact bit pattern, from the D-012 lookup table,
+served from WebAssembly.
+
+---
 
 ## Provenance and licence
 
