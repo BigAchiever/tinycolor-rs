@@ -130,13 +130,14 @@ node fuzz/harness.mjs --seconds 10 --seed 1
 > A fixed suite is table stakes. So — a differential fuzzer.
 >
 > Random colours into the original on V8, and into the port. Compared bit for
-> bit. No epsilon. Floats match exactly, or it's a divergence.
+> bit. Floats match exactly, or it's a divergence.
 
 *[Let the counter run. Then open `fuzz/logs/run-wasm-300s-seed1.json`.]*
 
-> Five minutes. Thirty-one million comparisons. Zero divergences.
+> Five minutes. Six hundred and eighty-nine thousand generated colours,
+> forty-five checks on each — thirty-one million comparisons. Zero divergences.
 >
-> And the same on the native transport.
+> Same on the native transport.
 
 ---
 
@@ -171,7 +172,7 @@ node fuzz/harness.mjs --seconds 10 --seed 1
 
 *[Browser, already loaded. Type a colour into the box.]*
 
-> TinyColor's own demo page, unmodified HTML. Every swatch is computed in Rust.
+> TinyColor's own demo page, unmodified. Every swatch computed in Rust.
 
 *[Let the swatches update. Two seconds of silence.]*
 
@@ -206,7 +207,7 @@ node fuzz/harness.mjs --seconds 10 --seed 1
 
 > The win is runtime elimination. The native binary starts nearly six times
 > faster, in four megabytes instead of thirty-four — carrying the same
-> forty-five out of forty-five, and the same fuzz evidence.
+> forty-five, and the same fuzz evidence.
 >
 > And zero `unsafe`, in all three crates. Not a README claim — `forbid` makes it
 > a compile error.

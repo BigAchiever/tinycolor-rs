@@ -1,4 +1,6 @@
 {
+  "unit": "one operation on one generated input, compared bit-for-bit",
+  "operations_per_case": 45,
   "seed": 11,
   "seconds_requested": 120,
   "seconds_elapsed": 120,

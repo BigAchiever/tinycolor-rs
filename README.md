@@ -6,7 +6,7 @@ Source: [bgrins/TinyColor](https://github.com/bgrins/TinyColor), 1,187 lines of 
 | | |
 |---|---|
 | **Upstream test suite, byte-for-byte unmodified** | **45/45 (100%)**, through two independent transports |
-| **Differential fuzz vs upstream on V8, exact float-bit equality** | **31,020,525 comparisons, 0 divergences** (300 s, seed 1) |
+| **Differential fuzz vs upstream on V8, exact float-bit equality** | **689,345 generated inputs × 45 operations = 31,020,525 comparisons, 0 divergences** (300 s, seed 1) |
 | **`unsafe` blocks** | **0** — `unsafe_code = "forbid"` in all three crates, so it is a compile error, not a claim |
 
 ```bash
@@ -162,7 +162,7 @@ There is **no per-op p99** for the sub-microsecond rows. `Instant::now()` on App
 | seed 7 | wasm | 120 s | 129,250 | 5,557,750 | **0** | `fuzz/logs/post-perffix-seed7.json` |
 | seed 11 | native | 120 s | 74,303 | 3,343,635 | **0** | `fuzz/logs/run-native-120s-seed11.json` |
 
-**34,364,160 comparisons, zero divergences.** The transport is chosen by `TINYCOLOR_TRANSPORT` on the command line; each log records the transport it actually ran under, in its `transport` field.
+**34,364,160 comparisons, zero divergences.** That is 763,648 generated inputs put through a 45-operation battery each, not 34 million distinct inputs. The transport is chosen by `TINYCOLOR_TRANSPORT` on the command line; each log records the transport it actually ran under, in its `transport` field.
 
 Each log also carries `peak_live_handles` (13,200 — one batch). That field exists because the port once leaked handles until the wasm heap died at ~4.6M colours (D-018); the regression is now a number rather than a mysterious crash forty minutes in.
 

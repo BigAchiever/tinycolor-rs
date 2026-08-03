@@ -281,6 +281,11 @@ if (groups.size) {
 }
 
 const summary = {
+  // A "comparison" is ONE operation on ONE generated input, checked against
+  // the reference. cases x operations_per_case = comparisons. Stated here so
+  // the headline figure cannot be mistaken for a count of distinct inputs.
+  unit: "one operation on one generated input, compared bit-for-bit",
+  operations_per_case: OPS_PER_CASE,
   seed: SEED,
   seconds_requested: SECONDS,
   seconds_elapsed: +elapsed.toFixed(2),
