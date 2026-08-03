@@ -8,8 +8,10 @@ it's your voice, not mine. Written prose and spoken prose are different
 languages, and this is written for the ear: short sentences, numbers said the
 way people say them, no clause stacking.
 
-About 600 spoken words — roughly 4:00 at a comfortable pace, inside a 5:00
-video. The remaining minute is terminal output and two silent scroll shots. **Let it land.** Silence while
+619 spoken words — 4:16 at 145 wpm, plus ~42 seconds of deliberate silence.
+That lands at **4:58**. There is no slack, so the shot timings in brackets are
+budgets, not suggestions: if a shot runs long, cut it short rather than talking
+over the next one. **Let it land.** Silence while
 a test suite prints is not dead air, it's evidence.
 
 ---
@@ -57,8 +59,8 @@ seconds.]*
 
 > One require. So I put mine at that path.
 
-*[Now scroll fast through the file — five seconds, blur of `assertEquals`. Say
-nothing. Volume is the point.]*
+*[Scroll fast — four seconds, a blur of `assertEquals`. Say nothing. Volume is
+the point.]*
 
 ---
 
@@ -83,19 +85,46 @@ node tests/run-all.mjs
 TINYCOLOR_TRANSPORT=native node tests/run-all.mjs
 ```
 
-> Same suite. Same forty-five.
->
-> But this time it isn't WebAssembly — it's a native Rust binary on the other
-> end of a pipe.
+> Same suite. Same forty-five. But not WebAssembly this time — a native Rust
+> binary on the other end of a pipe.
 >
 > The correctness lives in the port, not the plumbing.
 
 ---
 
-## 1:40 — Segment 5: the differential fuzzer
+## 1:35 — Segment 5: two things you should be suspicious of
+
+*[Fast. Two commands, no preamble. This kills the two obvious objections.]*
+
+> Two fair objections. First — the original is in this repo. Is the port calling
+> it?
 
 ```bash
-node fuzz/harness.mjs --seconds 20 --seed 1
+mv upstream/tinycolor.reference.js /tmp/
+node tests/run-all.mjs
+```
+
+> Deleted. Still forty-five. It's only the fuzzer's reference.
+
+*[Restore the file on camera: `mv /tmp/tinycolor.reference.js upstream/`]*
+
+> Second — that's my runner printing the number. Would it print a smaller one?
+
+*[Show a pre-recorded or live run against a deliberately broken build.]*
+
+```
+✗ mostReadable
+upstream suite: 40/45 tests passing (88.9%)
+```
+
+> Break one method and it says forty, and names the test. Not a rubber stamp.
+
+---
+
+## 2:05 — Segment 6: the differential fuzzer
+
+```bash
+node fuzz/harness.mjs --seconds 10 --seed 1
 ```
 
 > A fixed suite is table stakes. So — a differential fuzzer.
@@ -111,72 +140,69 @@ node fuzz/harness.mjs --seconds 20 --seed 1
 
 ---
 
-## 2:15 — Segment 6: the payoff for the cold open
+## 2:35 — Segment 7: the payoff for the cold open
 
 *[This is the segment people will remember. Slow down.]*
 
 > So — that failing assertion.
 >
-> Relative luminance. My port was off by one unit in the last place. The
-> smallest disagreement two doubles can have.
+> Relative luminance. Off by one unit in the last place — the smallest
+> disagreement two doubles can have.
 >
 > I assumed a rounding bug. It wasn't. The answer changed depending on what I
-> built for. Native Rust gave one number. The same source as WebAssembly gave
+> built for. Native Rust gave one number. The same source, as WebAssembly, gave
 > another.
 
 *[Show the D-012 table in `DECISIONS.md`.]*
 
-> `Math.pow` is not bit-identical across libm implementations. Across all two
-> hundred and fifty-six channel values, macOS matched V8 on two-oh-seven.
+> `Math.pow` isn't bit-identical across libm implementations. Over all two
+> hundred and fifty-six channel values, macOS matched V8 on two-oh-seven,
 > WebAssembly's on two-two-five. Neither matches.
 >
-> But luminance only ever sees integers, zero to two fifty-five. The input's
-> already rounded. That's not a function — that's a lookup table.
+> But luminance only ever sees integers, zero to two fifty-five. That's not a
+> function — that's a lookup table.
 >
 > So it's a generated table of V8's exact bits. Bit-exact everywhere, and faster
-> than calling `pow`.
+> than `pow`.
 
 ---
 
-## 3:00 — Segment 7: upstream's own demo page
+## 3:20 — Segment 8: upstream's own demo page
 
 *[Browser, already loaded. Type a colour into the box.]*
 
-> This is TinyColor's demo page from the pinned commit. Unmodified HTML.
->
-> Every swatch on it is computed in Rust.
+> TinyColor's own demo page, unmodified HTML. Every swatch is computed in Rust.
 
 *[Let the swatches update. Two seconds of silence.]*
 
-> Same global, same API, different language underneath. Nothing downstream had
-> to change.
+> Same global, same API. Nothing downstream had to change.
 
 ---
 
-## 3:25 — Segment 8: the regression, said out loud
+## 3:40 — Segment 9: the regression, said out loud
 
 *[Slow down again. This is a credibility play, not an apology. Say it evenly.]*
 
 > Now the part most demos skip.
 >
-> The port is slower. Five to ten times slower per operation. And the shipped
-> WebAssembly build loses on startup and memory too — seventy-one milliseconds
-> to boot, against eighteen.
+> The port is slower. Five to ten times, per operation. And the WebAssembly
+> build loses on startup and memory too — seventy-one milliseconds against
+> eighteen.
 
 *[Show the layer table in the README.]*
 
 > But it isn't the colour maths. Peel the layers apart: the ported Rust runs at
-> one-point-three times the original. The shipped artifact runs at eight.
+> one-point-three times the original. The shipped artifact, eight.
 >
-> Ninety-six percent of that gap is the bridge.
+> Ninety-six percent of the gap is the bridge — one JSON boundary instead of
+> forty-five FFI signatures. That's the only reason the unmodified suite can
+> drive the port at all.
 >
-> That's a deliberate trade — one JSON boundary instead of forty-five FFI
-> signatures. It's the only reason the unmodified suite can drive the port at
-> all. I'd make the same call again. I won't pretend it was free.
+> I'd make the same call again. I won't pretend it was free.
 
 ---
 
-## 4:00 — Segment 9: where the win is, and zero unsafe
+## 4:10 — Segment 10: where the win is, and zero unsafe
 
 > The win is runtime elimination. The native binary starts nearly six times
 > faster, in four megabytes instead of thirty-four — carrying the same
@@ -187,7 +213,7 @@ node fuzz/harness.mjs --seconds 20 --seed 1
 
 ---
 
-## 4:20 — Segment 10: the decision log
+## 4:28 — Segment 11: the decision log
 
 *[Scroll `DECISIONS.md`. Don't read entries aloud — let the headings pass.]*
 
@@ -195,24 +221,22 @@ node fuzz/harness.mjs --seconds 20 --seed 1
 > two languages. The string `"1.0"` and the number `1.0` are different colours.
 >
 > And a real bug in the original — `analogous` with a negative count loops
-> forever and eats the heap. Filed upstream.
+> forever. Filed upstream.
 
 *[Show issue #280 in the browser for two seconds.]*
 
 > Four of these are bugs in *my* port. A handle table that leaked until the
 > WebAssembly heap died. A transport that hung every process using it.
 >
-> They're in the log because a decision log that only records other people's
-> mistakes isn't one.
+> A decision log that only records other people's mistakes isn't one.
 
 ---
 
-## 4:50 — Close
+## 4:52 — Close
 
-> Correct against the original's own tests. Two transports. The regression on
-> the card instead of buried.
->
-> Everything reproduces from a clean checkout.
+> Correct against the original's own tests, on two transports, with the
+> regression on the card instead of buried. All of it reproduces from a clean
+> checkout.
 
 *[Final frame: the repo URL on screen. Stop talking. Let it sit for two seconds.]*
 
@@ -235,7 +259,7 @@ node fuzz/harness.mjs --seconds 20 --seed 1
 
 ## If you only get one take
 
-Cold open → segments 1, 2, 3, 5, 8. That's about 3:00 and it covers the 40%,
+Cold open → segments 1, 2, 3, 5, 9. That's about 3:00 and it covers the 40%,
 the 30%, and the mandatory disclosure. Segments 4, 6, 7, 9 and 10 lift it above
 competent; they are not what it fails without.
 
