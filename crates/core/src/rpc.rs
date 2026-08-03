@@ -11,6 +11,7 @@
 
 use crate::color::{self as ops, TinyColor};
 use crate::convert::Unit;
+use crate::error::{Error, MethodKind, Result};
 use crate::names::NAMES;
 use crate::parse::{ColorObj, Input};
 use serde_json::{json, Map, Value};
@@ -182,15 +183,15 @@ fn ids(list: Vec<TinyColor>) -> Value {
 pub fn dispatch(request: &str) -> String {
     let v: Value = match serde_json::from_str(request) {
         Ok(v) => v,
-        Err(e) => return json!({ "error": format!("bad request json: {e}") }).to_string(),
+        Err(e) => return json!({ "error": Error::MalformedRequest(e.to_string()).to_string() }).to_string(),
     };
     match handle(&v) {
         Ok(v) => v.to_string(),
-        Err(e) => json!({ "error": e }).to_string(),
+        Err(e) => json!({ "error": e.to_string() }).to_string(),
     }
 }
 
-fn handle(v: &Value) -> Result<Value, String> {
+fn handle(v: &Value) -> Result<Value> {
     let op = v.get("op").and_then(|x| x.as_str()).unwrap_or("");
     let empty: Vec<Value> = vec![];
     let args = v
@@ -239,8 +240,8 @@ fn handle(v: &Value) -> Result<Value, String> {
             let id = v
                 .get("id")
                 .and_then(|x| x.as_u64())
-                .ok_or("call requires id")?;
-            let mut c = get(id).ok_or("unknown color handle")?;
+                .ok_or(Error::BadRequest("call requires an id"))?;
+            let mut c = get(id).ok_or(Error::UnknownHandle(id))?;
             let method = v.get("method").and_then(|x| x.as_str()).unwrap_or("");
             call(id, &mut c, method, &args)
         }
@@ -248,11 +249,11 @@ fn handle(v: &Value) -> Result<Value, String> {
             let method = v.get("method").and_then(|x| x.as_str()).unwrap_or("");
             statics(method, &args)
         }
-        other => Err(format!("unknown op: {other}")),
+        other => Err(Error::UnknownOp(other.to_string())),
     }
 }
 
-fn call(id: u64, c: &mut TinyColor, method: &str, args: &[Value]) -> Result<Value, String> {
+fn call(id: u64, c: &mut TinyColor, method: &str, args: &[Value]) -> Result<Value> {
     // Mutating, chainable methods write back into the same handle.
     let chain = |c: &TinyColor| {
         put(id, c.clone());
@@ -343,11 +344,11 @@ fn call(id: u64, c: &mut TinyColor, method: &str, args: &[Value]) -> Result<Valu
             let n = arg_f64(args, 0).unwrap_or(f64::NAN);
             Ok(ids(ops::polyad(c, n)?))
         }
-        other => Err(format!("unimplemented instance method: {other}")),
+        other => Err(Error::UnknownMethod { kind: MethodKind::Instance, name: other.to_string() }),
     }
 }
 
-fn statics(method: &str, args: &[Value]) -> Result<Value, String> {
+fn statics(method: &str, args: &[Value]) -> Result<Value> {
     match method {
         "equals" => {
             // `!color1 || !color2 ? false : ...` — the full JS falsy set:
@@ -481,6 +482,6 @@ fn statics(method: &str, args: &[Value]) -> Result<Value, String> {
             }
             Ok(Value::Object(m))
         }
-        other => Err(format!("unimplemented static: {other}")),
+        other => Err(Error::UnknownMethod { kind: MethodKind::Static, name: other.to_string() }),
     }
 }

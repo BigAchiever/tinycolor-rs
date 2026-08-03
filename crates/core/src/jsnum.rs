@@ -160,7 +160,7 @@ pub fn num_to_string(x: f64) -> String {
     }
 
     let a = x.abs();
-    if a >= 1e21 || a < 1e-6 {
+    if !(1e-6..1e21).contains(&a) {
         let e = format!("{:e}", x); // e.g. "1e-7", "1.5e21"
         return match e.split_once('e') {
             Some((m, exp)) if !exp.starts_with('-') => format!("{m}e+{exp}"),

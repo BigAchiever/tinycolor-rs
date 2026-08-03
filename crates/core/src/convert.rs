@@ -96,7 +96,7 @@ pub fn bound01(n: &Unit, max: f64) -> f64 {
 /// `boundAlpha(a)` — anything outside [0, 1] or non-numeric becomes 1.
 pub fn bound_alpha(a: &Unit) -> f64 {
     let v = a.as_f64();
-    if v.is_nan() || v < 0.0 || v > 1.0 {
+    if v.is_nan() || !(0.0..=1.0).contains(&v) {
         1.0
     } else {
         v

@@ -17,6 +17,7 @@
 
 pub mod color;
 pub mod convert;
+pub mod error;
 pub mod jsnum;
 pub mod luminance;
 pub mod names;
@@ -24,6 +25,7 @@ pub mod parse;
 pub mod rpc;
 
 pub use color::TinyColor;
+pub use error::{Error, MethodKind, Result};
 pub use convert::{Hsl, Hsv, Rgb, Unit};
 pub use parse::{ColorObj, Input};
 

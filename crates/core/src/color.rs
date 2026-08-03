@@ -6,6 +6,7 @@ use crate::convert::{
 };
 use crate::jsnum::{clamp01, math_round, num_to_string};
 use crate::names::HEX_NAME_MAP;
+use crate::error::{Error, Result};
 use crate::parse::{input_to_rgb, ColorObj, Input};
 
 #[derive(Clone, Debug)]
@@ -432,9 +433,9 @@ pub fn complement(c: &TinyColor) -> TinyColor {
     hsl_color_a((h + 180.0) % 360.0, s, l, a)
 }
 
-pub fn polyad(c: &TinyColor, number: f64) -> Result<Vec<TinyColor>, String> {
+pub fn polyad(c: &TinyColor, number: f64) -> Result<Vec<TinyColor>> {
     if number.is_nan() || number <= 0.0 {
-        return Err("Argument to polyad must be a positive number".into());
+        return Err(Error::InvalidPolyadCount);
     }
     let (h, s, l, _) = c.to_hsl();
     let mut out = vec![c.clone()];
