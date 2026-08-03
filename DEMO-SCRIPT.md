@@ -20,18 +20,21 @@ shot is explicitly marked `[CUT]`, and those cuts are stated on screen.
 
 | # | Segment | Start | Len | Why it's here |
 |---|---|---:|---:|---|
-| 1 | Cold open — hashes verify | 0:00 | 0:20 | Proves the tests are upstream's, not ours |
-| 2 | 45/45, unmodified suite | 0:20 | 0:40 | The headline claim |
-| 3 | 45/45 again, native transport | 1:00 | 0:25 | Not a transport fluke |
-| 4 | Differential fuzz | 1:25 | 0:40 | Behavioral Equivalence, 30% |
-| 5 | Browser demo on the port | 2:05 | 0:40 | It's a real library, not a test-passer |
-| 6 | **The regression, honestly** | 2:45 | 0:35 | Mandatory disclosure, and a credibility play |
-| 7 | Where the win is + zero unsafe | 3:20 | 0:30 | Code Quality, 20% |
-| 8 | Decision log | 3:50 | 0:45 | Innovation, 10% — the strongest material |
-| 9 | Close | 4:35 | 0:25 | One card, one sentence |
+| 0 | **Cold open** — the one-bit failure, unexplained | 0:00 | 0:08 | Opens a loop; buys attention for the next four minutes |
+| 1 | Hashes verify | 0:08 | 0:17 | Proves the tests are upstream's, not ours |
+| 2 | **The upstream test file itself, and line 5** | 0:25 | 0:25 | Proves the mechanism without architecture talk |
+| 3 | 45/45, unmodified suite | 0:50 | 0:25 | The headline claim |
+| 4 | 45/45 again, native transport | 1:15 | 0:25 | Not a transport fluke |
+| 5 | Differential fuzz | 1:40 | 0:35 | Behavioural Equivalence, 30% |
+| 6 | **Payoff: the one-ULP story (D-012)** | 2:15 | 0:45 | The most memorable material in the project |
+| 7 | Browser demo on the port | 3:00 | 0:25 | It's a real library, not a test-passer |
+| 8 | **The regression, honestly** | 3:25 | 0:35 | Mandatory disclosure, and a credibility play |
+| 9 | Where the win is + zero unsafe | 4:00 | 0:20 | Code Quality, 20% |
+| 10 | Decision log + filed upstream bug | 4:20 | 0:30 | Innovation, 10% |
+| 11 | Close | 4:50 | 0:10 | One card, one sentence |
 
-Total 5:00. Segments 1–4 are non-negotiable. If a re-record runs long, cut
-segment 7 to 15 seconds and trim segment 5 — never segments 1–4 or 6.
+Total 5:00. Segments 0–5 and 8 are non-negotiable. Segment 2 is the one that
+makes every later claim believable — if anything gets cut, it is not that one.
 
 ---
 

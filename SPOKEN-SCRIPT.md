@@ -8,8 +8,8 @@ it's your voice, not mine. Written prose and spoken prose are different
 languages, and this is written for the ear: short sentences, numbers said the
 way people say them, no clause stacking.
 
-596 spoken words — about 4:07 at a comfortable pace, inside a 5:00 video. The
-remaining ~53 seconds is terminal output landing. **Let it land.** Silence while
+About 600 spoken words — roughly 4:00 at a comfortable pace, inside a 5:00
+video. The remaining minute is terminal output and two silent scroll shots. **Let it land.** Silence while
 a test suite prints is not dead air, it's evidence.
 
 ---
@@ -41,23 +41,43 @@ a test suite prints is not dead air, it's evidence.
 
 ---
 
-## 0:25 — Segment 2: forty-five out of forty-five
+## 0:25 — Segment 2: show them the actual test file
+
+*[Open `tests/original/test.js` in the editor. Line 5 on screen. This is the
+most convincing shot in the video — it proves the mechanism without a word of
+architecture. Do not rush it.]*
+
+> This is that file. Two thousand one hundred and ninety-one lines, four hundred
+> and thirty-two assertions, written for the JavaScript library.
+>
+> Line five is how it loads what it's testing.
+
+*[Highlight line 5: `const tinycolor = require("./tinycolor.js");`  — hold two
+seconds.]*
+
+> One require. So I put mine at that path.
+
+*[Now scroll fast through the file — five seconds, blur of `assertEquals`. Say
+nothing. Volume is the point.]*
+
+---
+
+## 0:50 — Segment 3: forty-five out of forty-five
 
 ```bash
 node tests/run-all.mjs
 ```
 
-> That's the file we just hashed — running against a Rust port.
->
-> The test file doesn't know. We never edited it. The shim sits at the `require`
-> path upstream already uses, so the suite loads Rust and runs unchanged.
+> Same file. Never edited. Now loading Rust.
 
-*[Flash `tests/original/tinycolor.js` for three seconds while you say the last
-sentence. Don't read it aloud. Back to the terminal.]*
+*[45/45 lands. Two seconds of silence. Then flash `tests/original/tinycolor.js`
+— our shim — for three seconds.]*
+
+> A hundred and ten lines of adapter. None of it does colour maths.
 
 ---
 
-## 1:00 — Segment 3: not a WebAssembly trick
+## 1:15 — Segment 4: not a WebAssembly trick
 
 ```bash
 TINYCOLOR_TRANSPORT=native node tests/run-all.mjs
@@ -65,24 +85,23 @@ TINYCOLOR_TRANSPORT=native node tests/run-all.mjs
 
 > Same suite. Same forty-five.
 >
-> This time it isn't WebAssembly — it's a native Rust binary on the other end of
-> a pipe. Two independent transports, one core.
+> But this time it isn't WebAssembly — it's a native Rust binary on the other
+> end of a pipe.
 >
 > The correctness lives in the port, not the plumbing.
 
 ---
 
-## 1:25 — Segment 4: the differential fuzzer
+## 1:40 — Segment 5: the differential fuzzer
 
 ```bash
 node fuzz/harness.mjs --seconds 20 --seed 1
 ```
 
-> A fixed suite is table stakes. So: a differential fuzzer.
+> A fixed suite is table stakes. So — a differential fuzzer.
 >
-> Random colours — hex, rgb, hsl, malformed junk — into the original library on
-> V8, and into the port. Comparing bit for bit. No epsilon. Floats match
-> exactly, or it's a divergence.
+> Random colours into the original on V8, and into the port. Compared bit for
+> bit. No epsilon. Floats match exactly, or it's a divergence.
 
 *[Let the counter run. Then open `fuzz/logs/run-wasm-300s-seed1.json`.]*
 
@@ -92,7 +111,7 @@ node fuzz/harness.mjs --seconds 20 --seed 1
 
 ---
 
-## 2:05 — Segment 5: the payoff for the cold open
+## 2:15 — Segment 6: the payoff for the cold open
 
 *[This is the segment people will remember. Slow down.]*
 
@@ -119,7 +138,7 @@ node fuzz/harness.mjs --seconds 20 --seed 1
 
 ---
 
-## 2:50 — Segment 6: upstream's own demo page
+## 3:00 — Segment 7: upstream's own demo page
 
 *[Browser, already loaded. Type a colour into the box.]*
 
@@ -134,7 +153,7 @@ node fuzz/harness.mjs --seconds 20 --seed 1
 
 ---
 
-## 3:20 — Segment 7: the regression, said out loud
+## 3:25 — Segment 8: the regression, said out loud
 
 *[Slow down again. This is a credibility play, not an apology. Say it evenly.]*
 
@@ -157,18 +176,18 @@ node fuzz/harness.mjs --seconds 20 --seed 1
 
 ---
 
-## 3:55 — Segment 8: where the win is, and zero unsafe
+## 4:00 — Segment 9: where the win is, and zero unsafe
 
 > The win is runtime elimination. The native binary starts nearly six times
-> faster, in four megabytes instead of thirty-four — and it carries the same
+> faster, in four megabytes instead of thirty-four — carrying the same
 > forty-five out of forty-five, and the same fuzz evidence.
 >
-> And zero `unsafe`, in all three crates. Not a claim in a README — `forbid`
-> makes it a compile error.
+> And zero `unsafe`, in all three crates. Not a README claim — `forbid` makes it
+> a compile error.
 
 ---
 
-## 4:20 — Segment 9: the decision log
+## 4:20 — Segment 10: the decision log
 
 *[Scroll `DECISIONS.md`. Don't read entries aloud — let the headings pass.]*
 
@@ -216,6 +235,9 @@ node fuzz/harness.mjs --seconds 20 --seed 1
 
 ## If you only get one take
 
-Cold open → segments 1, 2, 3, 4, 7. That's about 2:50 and it covers the 40%,
-the 30%, and the mandatory disclosure. Segments 5, 6, 8 and 9 are what lift it
-above competent, but they are not what it fails without.
+Cold open → segments 1, 2, 3, 5, 8. That's about 3:00 and it covers the 40%,
+the 30%, and the mandatory disclosure. Segments 4, 6, 7, 9 and 10 lift it above
+competent; they are not what it fails without.
+
+If you cut anything, do not cut segment 2. Showing the actual upstream test
+file — and line 5 — is the single shot that makes every later claim credible.
