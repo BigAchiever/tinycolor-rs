@@ -296,7 +296,6 @@ note = "Instantiating a 1.1 MB wasm module costs more than booting V8. The nativ
 # while the JS harness parses inside it. Putting these in the same table would
 # be a false claim, so they are not in the same table.
 comparable_to_js_column = false
-notes = "bench/CLI-NOTES.md"
 rows = [
   { workload = "noop",          ns = 0.75 },
   { workload = "luminance",     ns = 4.0  },
@@ -382,4 +381,3 @@ original_test_suite = "tests/original/test.js — unmodified, hash-pinned, 45/45
 fuzz_harness        = "fuzz/harness.mjs + fuzz/logs/"
 decisions_md        = "DECISIONS.md"
 benchmark_report    = "bench/METHODOLOGY.md + bench/results.json"
-demo_video          = "DEMO-SCRIPT.md — 5:00, opens on the unmodified suite passing"

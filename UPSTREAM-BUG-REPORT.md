@@ -60,14 +60,15 @@ fractional values that happen to work.
 
 ---
 
-## Note on filing
+## Filed
 
-This has NOT been filed upstream. Filing requires a GitHub account, and it should
-be filed by the team under their own identity rather than fabricated here. The
-report above is complete and can be pasted as-is.
+Reported as **[bgrins/TinyColor#280](https://github.com/bgrins/TinyColor/issues/280)**.
 
-The port's behaviour for these inputs is documented in DECISIONS.md (D-022): it
-returns a finite list rather than reproducing the unbounded loop. That is a
-deliberate, documented divergence from the original — the one place this port
-does not reproduce upstream behaviour, because reproducing it would mean
-reproducing a denial-of-service.
+Verified against upstream `main` before filing, not only the pinned commit: the
+vendored copy in this repo is byte-identical to `main`, both loops are still
+present, and all six cases (two functions x `-1`, `1.5`, `0.5`) exit 134.
+Checked 100 existing issues for duplicates first; the nearest are #116 and #204
+and neither is this.
+
+The port's deliberate divergence for these inputs is documented as **D-022** —
+it returns a finite list rather than reproducing an unbounded allocation loop.

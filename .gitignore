@@ -26,3 +26,14 @@ node_modules/
 # Editor
 .idea/
 *.swp
+
+# Production material for the demo video, the write-up and the submission form.
+# Kept locally, deliberately not shipped: a judge has no use for a teleprompter
+# script or YouTube copy, and shipping the shot list would put the direction
+# notes ("slow down here") in front of the person they are aimed at.
+/DEMO-SCRIPT.md
+/SPOKEN-SCRIPT.md
+/VOICEOVER.txt
+/YOUTUBE.md
+/WRITEUP-X-THREAD.md
+/bench/CLI-NOTES.md
