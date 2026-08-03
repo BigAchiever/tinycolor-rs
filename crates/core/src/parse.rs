@@ -326,9 +326,11 @@ pub fn input_to_rgb(input: &Input) -> RgbaResult {
         ok,
         // `color.format || format` — an explicit format on the object wins.
         format: obj.format.clone().or(format),
-        r: r.max(0.0).min(255.0),
-        g: g.max(0.0).min(255.0),
-        b: b.max(0.0).min(255.0),
+        // clamp, not .max().min(): see jsnum::clamp01 -- Rust's min/max
+        // swallow NaN where JS propagates it.
+        r: r.clamp(0.0, 255.0),
+        g: g.clamp(0.0, 255.0),
+        b: b.clamp(0.0, 255.0),
         a,
     }
 }

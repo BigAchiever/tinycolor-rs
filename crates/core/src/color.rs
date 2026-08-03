@@ -67,6 +67,11 @@ impl TinyColor {
         c
     }
 
+    /// Parsing never fails: upstream returns an object whose `isValid()` is
+    /// false rather than throwing, and the port matches that. `FromStr` is
+    /// also implemented, with `Err = Infallible`, so the type composes with
+    /// `.parse()` — see the impl below.
+    #[allow(clippy::should_implement_trait)]
     pub fn from_str(s: &str) -> Self {
         Self::new(Input::str(s))
     }
@@ -345,6 +350,17 @@ impl TinyColor {
 
 /// `tinycolor({h, s, l})` — a *fresh* object literal, so alpha is dropped.
 /// Used by `polyad` and `splitcomplement`.
+impl std::str::FromStr for TinyColor {
+    type Err = std::convert::Infallible;
+
+    /// Infallible on purpose. `tinycolor("garbage")` does not throw upstream —
+    /// it yields a colour reporting `isValid() == false` — so returning `Err`
+    /// here would invent an error the original never raises.
+    fn from_str(s: &str) -> std::result::Result<Self, Self::Err> {
+        Ok(TinyColor::new(Input::str(s)))
+    }
+}
+
 fn hsl_color(h: f64, s: f64, l: f64) -> TinyColor {
     TinyColor::new(Input::Obj(ColorObj {
         h: Some(Unit::Num(h)),
@@ -374,6 +390,11 @@ fn hsl_color_a(h: f64, s: f64, l: f64, a: f64) -> TinyColor {
 }
 
 /// `amount === 0 ? 0 : amount || 10`
+// clippy::redundant_guards wants `Some(0.0)` here. Declined: a float literal
+// pattern is its own smell, and the guard is a literal transcription of
+// upstream's `amount === 0 ? 0 : amount || 10` — the strict-equality check and
+// the falsy fallback are two separate ideas and read better kept apart.
+#[allow(clippy::redundant_guards)]
 fn amount_or_default(a: Option<f64>) -> f64 {
     match a {
         Some(v) if v == 0.0 => 0.0,
@@ -410,7 +431,9 @@ pub fn darken(c: &TinyColor, amount: Option<f64>) -> TinyColor {
 pub fn brighten(c: &TinyColor, amount: Option<f64>) -> TinyColor {
     let amount = amount_or_default(amount);
     let (r, g, b, a) = c.to_rgb();
-    let adj = |x: f64| (x - math_round(255.0 * -(amount / 100.0))).min(255.0).max(0.0);
+    // clamp, not .min().max(): NaN propagates in JS and through clamp,
+    // but Rust's min/max would silently substitute a bound. See jsnum::clamp01.
+    let adj = |x: f64| (x - math_round(255.0 * -(amount / 100.0))).clamp(0.0, 255.0);
     TinyColor::new(Input::Obj(ColorObj {
         r: Some(Unit::Num(adj(r))),
         g: Some(Unit::Num(adj(g))),
@@ -499,6 +522,7 @@ pub fn monochromatic(c: &TinyColor, results: Option<f64>) -> Vec<TinyColor> {
 
 // ---- statics -----------------------------------------------------------
 
+#[allow(clippy::redundant_guards)] // same as amount_or_default, above
 pub fn mix(c1: &TinyColor, c2: &TinyColor, amount: Option<f64>) -> TinyColor {
     let amount = match amount {
         Some(v) if v == 0.0 => 0.0,

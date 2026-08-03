@@ -221,8 +221,15 @@ pub fn is_percentage(s: &str) -> bool {
 }
 
 /// `Math.min(1, Math.max(0, val))`
+///
+/// Uses `clamp` rather than `.max(0.0).min(1.0)`, and the difference is
+/// behavioural, not stylistic. Rust's `f64::max` returns the *other* operand
+/// when one side is NaN, so `NAN.max(0.0).min(1.0)` is `0.0` — whereas JS
+/// propagates: `Math.min(1, Math.max(0, NaN))` is `NaN`. `f64::clamp`
+/// propagates NaN and therefore matches. The bounds are constants, so the
+/// `min > max` panic is unreachable.
 pub fn clamp01(v: f64) -> f64 {
-    v.max(0.0).min(1.0)
+    v.clamp(0.0, 1.0)
 }
 
 /// JS whitespace set as recognised by `parseFloat`/`parseInt`.
